@@ -11,12 +11,12 @@ function App() {
 	return (
 		<BrowserRouter>
 			<Routes>
-				<Route path="/" element={ <MainMenu/> }/>
-				<Route path="/tracks" element={ <ConfigCalendar/> }/>
-				<Route path="/points" element={ <ConfigPointsystem/> }/>
-				<Route path="/race/:raceId" element={ <RaceResult/> }/>
-				<Route path="/standings" element={ <Standings/> }/>
-				<Route path="/finish" element={ <Finish/> }/>
+				<Route path="/" element={ <MainMenu /> } />
+				<Route path="/tracks" element={ <ConfigCalendar /> } />
+				<Route path="/points" element={ <ConfigPointsystem /> } />
+				<Route path="/race/:raceId" element={ <RaceResult /> } />
+				<Route path="/standings" element={ <Standings /> } />
+				<Route path="/finish" element={ <Finish /> } />
 			</Routes>
 		</BrowserRouter>
 	);

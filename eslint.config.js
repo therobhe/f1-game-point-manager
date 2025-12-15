@@ -5,6 +5,9 @@ import reactRefresh from 'eslint-plugin-react-refresh'
 import tseslint from 'typescript-eslint'
 import { defineConfig, globalIgnores } from 'eslint/config'
 
+// Add plugin import for react
+import react from 'eslint-plugin-react';
+
 export default defineConfig([
   globalIgnores(['dist']),
   {
@@ -18,6 +21,17 @@ export default defineConfig([
     languageOptions: {
       ecmaVersion: 2020,
       globals: globals.browser,
+    },
+    plugins: {
+      react: react,
+    },
+    rules: {
+      'react/jsx-tag-spacing': [
+        'error',
+        {
+          beforeSelfClosing: 'always',
+        },
+      ],
     },
   },
 ])
