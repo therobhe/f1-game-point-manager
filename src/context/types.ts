@@ -52,7 +52,4 @@ export type PointHistory = {
 	timestamp: Date;
 };
 
-export type RaceCalendar = {
-	year: number;
-	tracks: Track[];
-}
+export type DriverPoints = { [driverId: number]: number };
