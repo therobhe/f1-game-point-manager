@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { BackButton } from '../components/ui/buttons/BackButton.tsx';
-import { useSeasonContext } from '../context/SeasonContext.tsx';
+import { useSeasonContext } from '../context/hooks.ts';
 import { pointSystem } from '../utils/data.ts';
 
 export const ConfigPointsystem: React.FC = () => {

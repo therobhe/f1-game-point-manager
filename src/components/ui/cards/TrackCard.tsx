@@ -1,7 +1,7 @@
-import styled from 'styled-components';
-import { useSeasonContext } from '../../../context/SeasonContext.tsx';
-import type { Track } from '../../../context/types.ts';
 import React from 'react';
+import styled from 'styled-components';
+import { useSeasonContext } from '../../../context/hooks.ts';
+import type { Track } from '../../../context/types.ts';
 
 const Card = styled.button`
     opacity: 0.6;

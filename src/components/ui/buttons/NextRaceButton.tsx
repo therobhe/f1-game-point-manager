@@ -1,5 +1,5 @@
 import { useNavigate, useParams } from 'react-router-dom';
-import { useSeasonContext } from '../../../context/SeasonContext.tsx';
+import { useSeasonContext } from '../../../context/hooks.ts';
 
 export const NextRaceButton = () => {
 	const navigate = useNavigate();

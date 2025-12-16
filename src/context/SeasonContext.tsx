@@ -1,4 +1,4 @@
-import { createContext, type Dispatch, type SetStateAction, useContext } from 'react';
+import { createContext, type Dispatch, type SetStateAction } from 'react';
 import type { DriverPoints, Track } from './types.ts';
 
 type SeasonContextProps = {
@@ -15,11 +15,3 @@ type SeasonContextProps = {
 };
 
 export const SeasonContext = createContext<SeasonContextProps | undefined>(undefined);
-
-export const useSeasonContext = () => {
-	const context = useContext(SeasonContext);
-	if(!context) {
-		throw new Error('useSeasonContext must be used within a SeasonProvider');
-	}
-	return context;
-};

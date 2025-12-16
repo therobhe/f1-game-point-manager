@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import { NextRaceButton } from '../components/ui/buttons/NextRaceButton.tsx';
 import { DriverCard } from '../components/ui/cards/DriverCard.tsx';
-import { useSeasonContext } from '../context/SeasonContext.tsx';
+import { useSeasonContext } from '../context/hooks.ts';
 import { drivers } from '../utils/data.ts';
 
 const DriverCardGrid = styled.div`
@@ -23,7 +23,6 @@ export const RaceResult: React.FC = () => {
 	
 	// Find the current track from the race calendar
 	const currentTrack = raceCalendar[Number(raceId) - 1];
-	
 	const pointsArray = activePointSystem ?? [];
 	const nextPosition = assignedDriverIds.length;
 	
@@ -39,6 +38,17 @@ export const RaceResult: React.FC = () => {
 		setAssignedDriverIds(ids => [ ...ids, driverId ]);
 	};
 	
+	const renderDriverCards = () => {
+		return drivers.map(driver => (
+			<DriverCard
+				key={driver.id}
+				{...driver}
+				onClick={() => handleDriverClick(driver.id)}
+				disabled={assignedDriverIds.includes(driver.id) || nextPosition >= pointsArray.length}
+			/>
+		));
+	};
+	
 	if(!currentTrack) {
 		return <div>No track found for this race.</div>;
 	}
@@ -52,14 +62,7 @@ export const RaceResult: React.FC = () => {
 	        : 'All points assigned'}
       </span>
 			<DriverCardGrid>
-				{drivers.map(driver => (
-					<DriverCard
-						key={driver.id}
-						{...driver}
-						onClick={() => handleDriverClick(driver.id)}
-						disabled={assignedDriverIds.includes(driver.id) || nextPosition >= pointsArray.length}
-					/>
-				))}
+				{renderDriverCards()}
 			</DriverCardGrid>
 			<NextRaceButton />
 		</>

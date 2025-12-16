@@ -1,8 +1,8 @@
 import React from 'react';
-import { BackButton } from '../components/ui/buttons/BackButton.tsx';
-import { tracks } from '../utils/data.ts';
-import { useSeasonContext } from '../context/SeasonContext.tsx';
 import { useNavigate } from 'react-router-dom';
+import { BackButton } from '../components/ui/buttons/BackButton.tsx';
+import { useSeasonContext } from '../context/hooks.ts';
+import { tracks } from '../utils/data.ts';
 
 export const ConfigCalendar: React.FC = () => {
 	const { setRaceCalendar } = useSeasonContext();
