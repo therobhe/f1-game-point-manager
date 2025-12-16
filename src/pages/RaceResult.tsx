@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import { NextRaceButton } from '../components/ui/buttons/NextRaceButton.tsx';
 import { DriverCard } from '../components/ui/cards/DriverCard.tsx';
@@ -16,8 +17,12 @@ const DriverCardGrid = styled.div`
 `;
 
 export const RaceResult: React.FC = () => {
-	const { setDriverPoints, activePointSystem, currentTrack } = useSeasonContext();
+	const { raceId } = useParams<{raceId: string}>();
+	const { setDriverPoints, activePointSystem, raceCalendar } = useSeasonContext();
 	const [ assignedDriverIds, setAssignedDriverIds ] = useState<number[]>([]);
+	
+	// Find the current track from the race calendar
+	const currentTrack = raceCalendar[Number(raceId) - 1];
 	
 	const pointsArray = activePointSystem ?? [];
 	const nextPosition = assignedDriverIds.length;
@@ -34,19 +39,23 @@ export const RaceResult: React.FC = () => {
 		setAssignedDriverIds(ids => [ ...ids, driverId ]);
 	};
 	
-	// Reset assigned drivers when the track changes
-	React.useEffect(() => {
+	// Reset assigned drivers when the race changes
+	useEffect(() => {
 		setAssignedDriverIds([]);
-	}, [ currentTrack ]);
+	}, [ raceId ]);
+	
+	if(!currentTrack) {
+		return <div>No track found for this race.</div>;
+	}
 	
 	return (
 		<>
 			<h1>Race Result for Event: {currentTrack.name}</h1>
 			<span>
-        {nextPosition < pointsArray.length
-	        ? `${pointsArray[nextPosition]} points go to...`
-	        : 'All points assigned'}
-      </span>
+                {nextPosition < pointsArray.length
+	                ? `${pointsArray[nextPosition]} points go to...`
+	                : 'All points assigned'}
+            </span>
 			<DriverCardGrid>
 				{drivers.map(driver => (
 					<DriverCard
