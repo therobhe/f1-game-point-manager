@@ -1,12 +1,22 @@
 import { useNavigate, useParams } from 'react-router-dom';
+import { useSeasonContext } from '../../../context/SeasonContext.tsx';
 
 export const NextRaceButton = () => {
 	const navigate = useNavigate();
 	const { raceId } = useParams<{raceId: string}>();
+	const { raceCalendar } = useSeasonContext();
+	
+	const calenderLength = raceCalendar?.length;
+	const currentRaceId = Number(raceId);
 	
 	const handleNext = () => {
-		const nextRaceId = Number(raceId) + 1;
-		navigate(`/race/${nextRaceId}`);
+		if(currentRaceId !== calenderLength) {
+			const nextRaceId = Number(raceId) + 1;
+			navigate(`/race/${nextRaceId}`);
+			return;
+		}
+		navigate('/finish');
+		return;
 	};
 	
 	return (
