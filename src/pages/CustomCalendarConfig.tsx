@@ -19,6 +19,11 @@ const TrackCardGrid = styled.div`
 
 export const CustomCalendarConfig: React.FC = () => {
 	/*Todo: disable link if calendar length === 0*/
+	const renderTrackCards = () => {
+		return tracks.map(track =>
+			<TrackCard key={track.id} {...track} />
+		);
+	};
 	return (
 		<>
 			{/*Todo: introduce current calendar display*/}
@@ -26,9 +31,7 @@ export const CustomCalendarConfig: React.FC = () => {
 			<h1>Custom Calendar Config</h1>
 			<span>Click on the cards to add a track to the calendar. You do not have to use all the tracks (we all know the perfect amount of races is 16)</span>
 			<TrackCardGrid>
-				{tracks.map(track =>
-					<TrackCard key={track.id} id={track.id} name={track.name} nationality={track.nationality} />
-				)}
+				{renderTrackCards()}
 			</TrackCardGrid>
 			<ResetCalendarButton />
 			<Link to="/points">Next</Link>

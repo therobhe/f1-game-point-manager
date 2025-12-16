@@ -17,7 +17,7 @@ import type { DriverPoints, Track } from './types.ts';
  */
 const defaultDriverPoints: DriverPoints = drivers.reduce(
 	(acc, driver) => ({ ...acc, [driver.id]: 0 }),
-	{}
+	{} as DriverPoints
 );
 
 export const SeasonProvider = ({ children }: {children: ReactNode}) => {

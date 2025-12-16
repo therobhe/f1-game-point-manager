@@ -18,12 +18,16 @@ const Card = styled.button`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 `;
 
-export const DriverCard: React.FC<Driver> = ({ id, name, nationality, teamId }) => {
-	
+type DriverCardProps = Driver & {
+	onClick: () => void;
+};
+
+export const DriverCard: React.FC<DriverCardProps> = ({ id, name, nationality, teamId, onClick }) => {
 	return (
-		<Card>
+		<Card onClick={onClick}>
 			<h1>{id}</h1>
 			<h2>{name}</h2>
 			<h3>{nationality}</h3>
