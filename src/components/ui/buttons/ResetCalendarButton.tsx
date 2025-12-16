@@ -1,8 +1,7 @@
 import { useSeasonContext } from '../../../context/SeasonContext.tsx';
 
 export const ResetCalendarButton = () => {
-	const { raceCalendar, resetRaceCalendar } = useSeasonContext();
-	console.log(raceCalendar);
+	const { resetRaceCalendar } = useSeasonContext();
 	return (
 		<button onClick={resetRaceCalendar}>Reset Calendar</button>
 	);

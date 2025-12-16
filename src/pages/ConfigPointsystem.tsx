@@ -5,11 +5,10 @@ import { useSeasonContext } from '../context/SeasonContext.tsx';
 import { pointSystem } from '../utils/data.ts';
 
 export const ConfigPointsystem: React.FC = () => {
-	const { raceCalendar, setActivePointSystem } = useSeasonContext();
+	const { setActivePointSystem } = useSeasonContext();
 	const navigate = useNavigate();
-	console.log(raceCalendar);
 	
-	const setPointSysteAndNavigate = (desiredSystem: number[]) => {
+	const setPointSystemAndNavigate = (desiredSystem: number[]) => {
 		setActivePointSystem(desiredSystem);
 		navigate('/race/1');
 	};
@@ -21,9 +20,9 @@ export const ConfigPointsystem: React.FC = () => {
 			<h1>Config Points</h1>
 			<span>Choose the point system you want to use</span>
 			<div>
-				<button onClick={() => setPointSysteAndNavigate(pointSystem.modern)}>Modern</button>
-				<button onClick={() => setPointSysteAndNavigate(pointSystem.classic)}>Classic</button>
-				<button onClick={() => setPointSysteAndNavigate(pointSystem.retro)}>Retro</button>
+				<button onClick={() => setPointSystemAndNavigate(pointSystem.modern)}>Modern</button>
+				<button onClick={() => setPointSystemAndNavigate(pointSystem.classic)}>Classic</button>
+				<button onClick={() => setPointSystemAndNavigate(pointSystem.retro)}>Retro</button>
 			</div>
 		</>
 	);
