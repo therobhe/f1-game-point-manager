@@ -27,6 +27,10 @@ export const RaceResult: React.FC = () => {
 	const pointsArray = activePointSystem ?? [];
 	const nextPosition = assignedDriverIds.length;
 	
+	useEffect(() => {
+		setAssignedDriverIds([]);
+	}, [ raceId ]);
+	
 	const handleDriverClick = (driverId: number) => {
 		if(nextPosition >= pointsArray.length) return;
 		if(assignedDriverIds.includes(driverId)) return;
@@ -39,23 +43,18 @@ export const RaceResult: React.FC = () => {
 		setAssignedDriverIds(ids => [ ...ids, driverId ]);
 	};
 	
-	// Reset assigned drivers when the race changes
-	useEffect(() => {
-		setAssignedDriverIds([]);
-	}, [ raceId ]);
-	
 	if(!currentTrack) {
 		return <div>No track found for this race.</div>;
 	}
 	
 	return (
-		<>
+		<React.Fragment key={raceId}>
 			<h1>Race Result for Event: {currentTrack.name}</h1>
 			<span>
-                {nextPosition < pointsArray.length
-	                ? `${pointsArray[nextPosition]} points go to...`
-	                : 'All points assigned'}
-            </span>
+        {nextPosition < pointsArray.length
+	        ? `${pointsArray[nextPosition]} points go to...`
+	        : 'All points assigned'}
+      </span>
 			<DriverCardGrid>
 				{drivers.map(driver => (
 					<DriverCard
@@ -67,6 +66,6 @@ export const RaceResult: React.FC = () => {
 				))}
 			</DriverCardGrid>
 			<NextRaceButton />
-		</>
+		</React.Fragment>
 	);
 };
