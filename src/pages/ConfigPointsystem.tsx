@@ -1,7 +1,11 @@
-import React from "react";
+import React from 'react';
+import { BackButton } from '../components/ui/buttons/BackButton.tsx';
 
 export const ConfigPointsystem: React.FC = () => {
-    return (
-        <h1>Config Points</h1>
-    )
-}
+	return (
+		<>
+			<BackButton />
+			<h1>Config Points</h1>
+		</>
+	);
+};

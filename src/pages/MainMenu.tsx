@@ -11,11 +11,3 @@ export const MainMenu: React.FC = () => {
 		</>
 	);
 };
-
-/*import { useNavigate } from 'react-router-dom';
-
-const MyComponent = () => {
-  const navigate = useNavigate();
-  const handleClick = () => {
-    navigate('/track-config');
-  };*/

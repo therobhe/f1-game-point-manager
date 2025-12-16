@@ -7,7 +7,6 @@ import { useNavigate } from 'react-router-dom';
 export const ConfigCalendar: React.FC = () => {
 	const { setRaceCalendar } = useSeasonContext();
 	const navigate = useNavigate();
-	
 	/**
 	 * Selects the full 2014 season by setting the race calendar to the predefined `tracks` array
 	 * and navigates the user to the points system page.
@@ -28,8 +27,8 @@ export const ConfigCalendar: React.FC = () => {
 		<>
 			<BackButton />
 			<h1>Config Calendar</h1>
-			<button onClick={ selectFullSeasonAndGoToPointsystem }>Full 2014 Season</button>
-			<button onClick={ goToCalendarCreationScreen }>Custom Calendar</button>
+			<button onClick={selectFullSeasonAndGoToPointsystem}>Full 2014 Season</button>
+			<button onClick={goToCalendarCreationScreen}>Custom Calendar</button>
 		</>
 	);
 };

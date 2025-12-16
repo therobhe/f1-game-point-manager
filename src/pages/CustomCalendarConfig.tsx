@@ -1,9 +1,9 @@
 import React from 'react';
-import { BackButton } from '../components/ui/buttons/BackButton.tsx';
-import { tracks } from '../utils/data.ts';
-import { TrackCard } from '../components/ui/cards/TrackCard.tsx';
-import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import styled from 'styled-components';
+import { BackButton } from '../components/ui/buttons/BackButton.tsx';
+import { TrackCard } from '../components/ui/cards/TrackCard.tsx';
+import { tracks } from '../utils/data.ts';
 
 const TrackCardGrid = styled.div`
     display: grid;
@@ -17,18 +17,20 @@ const TrackCardGrid = styled.div`
 `;
 
 export const CustomCalendarConfig: React.FC = () => {
-	// import all tracks from the data -> loop through them and render a <TrackCard> for each Track
+	
 	return (
 		<>
+			{/*Todo: introduce reset calendar button*/}
+			{/*Todo: introduce current calendar display*/}
 			<BackButton />
 			<h1>Custom Calendar Config</h1>
 			<span>Click on the cards to add a track to the calendar. You do not have to use all the tracks (we all know the perfect amount of races is 16)</span>
 			<TrackCardGrid>
-				{ tracks.map(track =>
-					<TrackCard key={ track.id } id={ track.id } name={ track.name } nationality={ track.nationality } />
-				) }
+				{tracks.map(track =>
+					<TrackCard key={track.id} id={track.id} name={track.name} nationality={track.nationality} />
+				)}
 			</TrackCardGrid>
-			<Link to="/points">New Season</Link>
+			<Link to="/points">Next</Link>
 		</>
 	);
 };

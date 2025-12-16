@@ -22,15 +22,13 @@ const Card = styled.button`
 `;
 
 export const TrackCard: React.FC<Track> = ({ id, name, nationality }) => {
-	const { raceCalendar, addSingleRaceToRaceCalendar } = useSeasonContext();
-	
-	console.log('raceCalendar', raceCalendar);
+	const { addSingleRaceToRaceCalendar } = useSeasonContext();
 	
 	return (
-		<Card onClick={ () => addSingleRaceToRaceCalendar({ id, name, nationality }) }>
-			<h1>{ id }</h1>
-			<h2>{ name }</h2>
-			<h3>{ nationality }</h3>
+		<Card onClick={() => addSingleRaceToRaceCalendar({ id, name, nationality })}>
+			<h1>{id}</h1>
+			<h2>{name}</h2>
+			<h3>{nationality}</h3>
 		</Card>
 	);
 };
