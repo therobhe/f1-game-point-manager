@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import type { Driver } from '../../../context/types.ts';
+import { teams } from '../../../utils/data.ts';
 
 const Card = styled.button`
     opacity: 0.6;
@@ -26,13 +27,18 @@ type DriverCardProps = Driver & {
 	disabled?: boolean;
 };
 
-export const DriverCard: React.FC<DriverCardProps> = ({
-	                                                      id, name, nationality, teamId, onClick, disabled
-                                                      }) => (
-	<Card onClick={onClick} disabled={disabled}>
-		<h1>{id}</h1>
-		<h2>{name}</h2>
-		<h3>{nationality}</h3>
-		<h4>{teamId}</h4>
-	</Card>
-);
+export const DriverCard: React.FC<DriverCardProps> = ({ id, name, nationality, teamId, onClick, disabled }) => {
+	const getTeamNameFromId = (id: number): string => {
+		const target = teams.find((team) => team.id === id);
+		return target ? target.name : id.toString();
+	};
+	
+	return (
+		<Card onClick={onClick} disabled={disabled}>
+			<h1>{id}</h1>
+			<h2>{name}</h2>
+			<h3>{nationality}</h3>
+			<h4>{getTeamNameFromId(teamId)}</h4>
+		</Card>
+	);
+};
