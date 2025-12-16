@@ -23,15 +23,16 @@ const Card = styled.button`
 
 type DriverCardProps = Driver & {
 	onClick: () => void;
+	disabled?: boolean;
 };
 
-export const DriverCard: React.FC<DriverCardProps> = ({ id, name, nationality, teamId, onClick }) => {
-	return (
-		<Card onClick={onClick}>
-			<h1>{id}</h1>
-			<h2>{name}</h2>
-			<h3>{nationality}</h3>
-			<h4>{teamId}</h4>
-		</Card>
-	);
-};
+export const DriverCard: React.FC<DriverCardProps> = ({
+	                                                      id, name, nationality, teamId, onClick, disabled
+                                                      }) => (
+	<Card onClick={onClick} disabled={disabled}>
+		<h1>{id}</h1>
+		<h2>{name}</h2>
+		<h3>{nationality}</h3>
+		<h4>{teamId}</h4>
+	</Card>
+);

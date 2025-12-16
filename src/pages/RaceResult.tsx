@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import { NextRaceButton } from '../components/ui/buttons/NextRaceButton.tsx';
 import { DriverCard } from '../components/ui/cards/DriverCard.tsx';
 import { useSeasonContext } from '../context/SeasonContext.tsx';
-import type { DriverPoints } from '../context/types.ts';
 import { drivers } from '../utils/data.ts';
 
 const DriverCardGrid = styled.div`
@@ -17,44 +16,46 @@ const DriverCardGrid = styled.div`
 `;
 
 export const RaceResult: React.FC = () => {
-	const { driverPoints, setDriverPoints, activePointSystem, currentTrack } = useSeasonContext();
-	const [ position, setPosition ] = useState(0);
+	const { setDriverPoints, activePointSystem, currentTrack } = useSeasonContext();
+	const [ assignedDriverIds, setAssignedDriverIds ] = useState<number[]>([]);
 	
 	const pointsArray = activePointSystem ?? [];
-	
-	console.log(driverPoints);
+	const nextPosition = assignedDriverIds.length;
 	
 	const handleDriverClick = (driverId: number) => {
-		if(position >= pointsArray.length) return;
+		if(nextPosition >= pointsArray.length) return;
+		if(assignedDriverIds.includes(driverId)) return;
 		
-		setDriverPoints((prev: DriverPoints) => ({
+		setDriverPoints(prev => ({
 			...prev,
-			[driverId]: prev[driverId] + pointsArray[position]
+			[driverId]: prev[driverId] + pointsArray[nextPosition]
 		}));
 		
-		setPosition(pos => pos + 1);
+		setAssignedDriverIds(ids => [ ...ids, driverId ]);
 	};
 	
-	const renderDriverCards = () => {
-		return drivers.map(driver => (
-			<DriverCard
-				key={driver.id}
-				{...driver}
-				onClick={() => handleDriverClick(driver.id)}
-			/>
-		));
-	};
+	// Reset assigned drivers when the track changes
+	React.useEffect(() => {
+		setAssignedDriverIds([]);
+	}, [ currentTrack ]);
 	
 	return (
 		<>
 			<h1>Race Result for Event: {currentTrack.name}</h1>
 			<span>
-        {position < pointsArray.length
-	        ? `${pointsArray[position]} points go to...`
+        {nextPosition < pointsArray.length
+	        ? `${pointsArray[nextPosition]} points go to...`
 	        : 'All points assigned'}
       </span>
 			<DriverCardGrid>
-				{renderDriverCards()}
+				{drivers.map(driver => (
+					<DriverCard
+						key={driver.id}
+						{...driver}
+						onClick={() => handleDriverClick(driver.id)}
+						disabled={assignedDriverIds.includes(driver.id) || nextPosition >= pointsArray.length}
+					/>
+				))}
 			</DriverCardGrid>
 			<NextRaceButton />
 		</>
