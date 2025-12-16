@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { BackButton } from '../components/ui/buttons/BackButton.tsx';
+import { ResetCalendarButton } from '../components/ui/buttons/ResetCalendarButton.tsx';
 import { TrackCard } from '../components/ui/cards/TrackCard.tsx';
 import { tracks } from '../utils/data.ts';
 
@@ -17,10 +18,9 @@ const TrackCardGrid = styled.div`
 `;
 
 export const CustomCalendarConfig: React.FC = () => {
-	
+	/*Todo: disable link if calendar length === 0*/
 	return (
 		<>
-			{/*Todo: introduce reset calendar button*/}
 			{/*Todo: introduce current calendar display*/}
 			<BackButton />
 			<h1>Custom Calendar Config</h1>
@@ -30,6 +30,7 @@ export const CustomCalendarConfig: React.FC = () => {
 					<TrackCard key={track.id} id={track.id} name={track.name} nationality={track.nationality} />
 				)}
 			</TrackCardGrid>
+			<ResetCalendarButton />
 			<Link to="/points">Next</Link>
 		</>
 	);

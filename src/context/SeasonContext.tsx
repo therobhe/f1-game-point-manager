@@ -1,5 +1,5 @@
-import type { DriverPoints, Track } from './types.ts';
 import { createContext, useContext } from 'react';
+import type { DriverPoints, Track } from './types.ts';
 
 type SeasonContextProps = {
 	currentTrack: Track;
@@ -9,6 +9,9 @@ type SeasonContextProps = {
 	raceCalendar: Track[];
 	setRaceCalendar: (calendar: Track[]) => void;
 	addSingleRaceToRaceCalendar: (trackToAdd: Track) => void;
+	resetRaceCalendar: () => void;
+	activePointSystem: number[] | null;
+	setActivePointSystem: (activePointSystem: number[]) => void;
 }
 
 export const SeasonContext = createContext<SeasonContextProps | undefined>(undefined);

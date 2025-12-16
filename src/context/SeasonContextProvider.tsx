@@ -1,7 +1,7 @@
-import type { DriverPoints, Track } from './types.ts';
 import { type ReactNode, useState } from 'react';
 import { drivers, tracks } from '../utils/data.ts';
 import { SeasonContext } from './SeasonContext.tsx';
+import type { DriverPoints, Track } from './types.ts';
 
 /**
  * Initializes the default driver points object.
@@ -20,13 +20,18 @@ const defaultDriverPoints: DriverPoints = drivers.reduce(
 	{}
 );
 
-export const SeasonProvider = ({ children }: { children: ReactNode }) => {
+export const SeasonProvider = ({ children }: {children: ReactNode}) => {
 	const [ raceCalendar, setRaceCalendar ] = useState<Track[]>([]);
 	const [ currentTrack, setCurrentTrack ] = useState<Track>(tracks[0]);
 	const [ driverPoints, setDriverPoints ] = useState<DriverPoints>(defaultDriverPoints);
+	const [ activePointSystem, setActivePointSystem ] = useState<number[] | null>(null);
 	
 	const addSingleRaceToRaceCalendar = (trackToAdd: Track) => {
 		setRaceCalendar(prev => [ ...prev, trackToAdd ]);
+	};
+	
+	const resetRaceCalendar = () => {
+		setRaceCalendar([]);
 	};
 	
 	const providedValues = {
@@ -36,12 +41,15 @@ export const SeasonProvider = ({ children }: { children: ReactNode }) => {
 		setDriverPoints,
 		raceCalendar,
 		setRaceCalendar,
-		addSingleRaceToRaceCalendar
+		addSingleRaceToRaceCalendar,
+		resetRaceCalendar,
+		activePointSystem,
+		setActivePointSystem
 	};
 	
 	return (
-		<SeasonContext.Provider value={ providedValues }>
-			{ children }
+		<SeasonContext.Provider value={providedValues}>
+			{children}
 		</SeasonContext.Provider>
 	);
 };

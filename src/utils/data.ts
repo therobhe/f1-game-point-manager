@@ -28,7 +28,6 @@ export const tracks: Track[] = [
 	{ id: 19, name: 'Yas Marina', nationality: 'Abu Dhabi' }
 ];
 
-
 /**
  * List of all drivers participating in the 2014 season.
  * Each driver contains an id, name, teamId, and nationality.
@@ -79,3 +78,9 @@ export const teams: Team[] = [
 	{ id: 10, name: 'Marussia F1 Team' },
 	{ id: 11, name: 'Caterham F1 Team' }
 ];
+
+export const pointSystem = {
+	modern: [ 25, 18, 15, 12, 10, 8, 6, 4, 2, 1 ],
+	classic: [ 10, 8, 6, 5, 4, 3, 2, 1 ],
+	retro: [ 10, 6, 4, 3, 2, 1 ]
+};
