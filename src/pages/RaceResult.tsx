@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import { NextRaceButton } from '../components/ui/buttons/NextRaceButton.tsx';
@@ -27,10 +27,6 @@ export const RaceResult: React.FC = () => {
 	const pointsArray = activePointSystem ?? [];
 	const nextPosition = assignedDriverIds.length;
 	
-	useEffect(() => {
-		setAssignedDriverIds([]);
-	}, [ raceId ]);
-	
 	const handleDriverClick = (driverId: number) => {
 		if(nextPosition >= pointsArray.length) return;
 		if(assignedDriverIds.includes(driverId)) return;
@@ -48,7 +44,7 @@ export const RaceResult: React.FC = () => {
 	}
 	
 	return (
-		<React.Fragment key={raceId}>
+		<>
 			<h1>Race Result for Event: {currentTrack.name}</h1>
 			<span>
         {nextPosition < pointsArray.length
@@ -66,6 +62,6 @@ export const RaceResult: React.FC = () => {
 				))}
 			</DriverCardGrid>
 			<NextRaceButton />
-		</React.Fragment>
+		</>
 	);
 };
