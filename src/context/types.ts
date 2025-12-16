@@ -10,7 +10,7 @@ type Nationality =
 	| 'France'
 	| 'Russia'
 	| 'Finland'
-	| 'Dansk'
+	| 'Denmark'
 	| 'Venezuela'
 	| 'China'
 	| 'Bahrain'

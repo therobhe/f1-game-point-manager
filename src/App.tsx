@@ -11,19 +11,19 @@ import { CustomCalendarConfig } from './pages/CustomCalendarConfig.tsx';
 
 function App() {
 	return (
-		<SeasonProvider >
-			<BrowserRouter >
-				<Routes >
-					<Route path="/" element={<MainMenu />} />
-					<Route path="/track-config" element={<ConfigCalendar />} />
-					<Route path="/custom-calendar" element={<CustomCalendarConfig />} />
-					<Route path="/points" element={<ConfigPointsystem />} />
-					<Route path="/race/:raceId" element={<RaceResult />} />
-					<Route path="/standings" element={<Standings />} />
-					<Route path="/finish" element={<Finish />} />
-				</Routes >
-			</BrowserRouter >
-		</SeasonProvider >
+		<SeasonProvider>
+			<BrowserRouter>
+				<Routes>
+					<Route path="/" element={ <MainMenu /> } />
+					<Route path="/track-config" element={ <ConfigCalendar /> } />
+					<Route path="/custom-calendar" element={ <CustomCalendarConfig /> } />
+					<Route path="/points" element={ <ConfigPointsystem /> } />
+					<Route path="/race/:raceId" element={ <RaceResult /> } />
+					<Route path="/standings" element={ <Standings /> } />
+					<Route path="/finish" element={ <Finish /> } />
+				</Routes>
+			</BrowserRouter>
+		</SeasonProvider>
 	);
 }
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { BackButton } from '../components/ui/buttons/BackButton.tsx';
-import { tracks } from '../context/data.ts';
+import { tracks } from '../utils/data.ts';
 import { useSeasonContext } from '../context/SeasonContext.tsx';
 import { useNavigate } from 'react-router-dom';
 
@@ -27,9 +27,9 @@ export const ConfigCalendar: React.FC = () => {
 	return (
 		<>
 			<BackButton />
-			<h1 >Config Calendar</h1 >
-			<button onClick={selectFullSeasonAndGoToPointsystem} >Full 2014 Season</button >
-			<button onClick={goToCalendarCreationScreen} >Custom Calendar</button >
+			<h1>Config Calendar</h1>
+			<button onClick={ selectFullSeasonAndGoToPointsystem }>Full 2014 Season</button>
+			<button onClick={ goToCalendarCreationScreen }>Custom Calendar</button>
 		</>
 	);
 };
