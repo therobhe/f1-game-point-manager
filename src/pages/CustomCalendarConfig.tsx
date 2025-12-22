@@ -6,6 +6,7 @@ import { ResetCalendarButton } from '../components/ui/buttons/ResetCalendarButto
 import { TrackCard } from '../components/ui/cards/TrackCard.tsx';
 import { useSeasonContext } from '../context/hooks.ts';
 import { tracks } from '../utils/data.ts';
+import { CalendarPreview } from '../components/CalendarPreview.tsx';
 
 export const CustomCalendarConfig: React.FC = () => {
 	const { raceCalendar } = useSeasonContext();
@@ -36,8 +37,14 @@ export const CustomCalendarConfig: React.FC = () => {
 					</p>
 				</div>
 
-				<div className="grid grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-4">
-					{renderTrackCards()}
+				<div className="flex flex-col lg:flex-row gap-8 items-start">
+					<div className="flex-1">
+						<div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4">
+							{renderTrackCards()}
+						</div>
+					</div>
+
+					<CalendarPreview />
 				</div>
 
 				{/* Floating Bottom Navigation Block */}

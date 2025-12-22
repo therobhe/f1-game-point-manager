@@ -48,7 +48,7 @@ const PodiumItem: React.FC<{
 };
 
 export const Finish: React.FC = () => {
-	const { driverPoints } = useSeasonContext();
+	const { driverPoints, resetSeason } = useSeasonContext();
 
 	const topDrivers = useMemo(() => {
 		return drivers.map(driver => ({
@@ -183,6 +183,7 @@ export const Finish: React.FC = () => {
 			<div className="mt-12">
 				<Link
 					to="/"
+					onClick={resetSeason}
 					className="
                         relative overflow-hidden group
                         px-12 py-4 
