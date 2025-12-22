@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 import { describe, it, expect, vi } from 'vitest';
 import { StandingsTable } from './StandingsTable';
 import * as hooks from '../context/hooks';
-import { drivers, teams } from '../utils/data';
+import { teams } from '../utils/data';
 
 // Mock the context hook
 vi.mock('../context/hooks', () => ({
@@ -25,8 +25,8 @@ describe('StandingsTable', () => {
         render(<StandingsTable />);
 
         // Check Headers
-        expect(screen.getByText('Driver Standings')).toBeInTheDocument();
-        expect(screen.getByText('Constructor Standings')).toBeInTheDocument();
+        expect(screen.getByText('Drivers')).toBeInTheDocument();
+        expect(screen.getByText('Constructors')).toBeInTheDocument();
 
         // Check Driver Points
         expect(screen.getByText('Lewis Hamilton')).toBeInTheDocument();
@@ -58,7 +58,7 @@ describe('StandingsTable', () => {
 
         render(<StandingsTable />);
 
-        const rows = screen.getAllByRole('row');
+        // Check Driver sorting
         // Row 1: Header
         // Row 2: Driver Pos 1 (Should be Nico with 25)
         // Row 3: Driver Pos 2 (Should be Lewis with 10)

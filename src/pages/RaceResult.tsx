@@ -46,25 +46,46 @@ export const RaceResult: React.FC = () => {
 	// NextRaceButton handles the logic for next race or finish internally based on current raceId and calendar length.
 
 	return (
-		<div className="flex flex-col gap-6 p-4 pb-12">
-			<h1 className="text-3xl font-bold text-center text-white mb-2">Race Result for Event: {currentTrack.name}</h1>
-			<div className="text-center text-xl text-yellow-400 font-semibold mb-6">
-				{nextPosition < pointsArray.length
-					? `${pointsArray[nextPosition]} points go to...`
-					: 'All points assigned'}
-			</div>
+		<div className="flex flex-col min-h-screen p-4 bg-gradient-to-b from-[#1a1a1a] to-[#0f0f0f] pb-32">
+			<div className="w-full max-w-6xl mx-auto relative mt-8">
+				<div className="text-center mb-12">
+					<h1 className="text-3xl md:text-5xl font-black italic tracking-tighter text-white uppercase transform -skew-x-12 inline-block">
+						Event Result:
+						<span className="block text-red-500 not-italic skew-x-0 tracking-widest text-xl mt-1 uppercase">
+							{currentTrack.name}
+						</span>
+					</h1>
+					<div className="h-1 w-24 bg-red-600 mx-auto mt-4 transform -skew-x-12"></div>
+				</div>
 
-			<div className="grid grid-cols-2 md:grid-cols-4 gap-2">
-				{renderDriverCards()}
-			</div>
+				<div className="flex justify-center mb-12">
+					<div className="relative group">
+						<div className="absolute -inset-1 bg-gradient-to-r from-yellow-500 to-yellow-700 rounded blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
+						<div className="relative px-8 py-4 bg-white/5 backdrop-blur-sm border border-yellow-500/30 rounded-lg">
+							<span className="text-xl md:text-2xl font-bold text-yellow-500 tracking-tight italic">
+								{nextPosition < pointsArray.length
+									? <><span className="text-white uppercase not-italic text-sm tracking-[0.2em] block mb-1 opacity-50">Assigning Points:</span> {pointsArray[nextPosition]} Pts</>
+									: 'All Points Assigned'}
+							</span>
+						</div>
+					</div>
+				</div>
 
-			<div className="flex justify-center mt-8 pt-6 border-t border-white/10 w-full">
-				{isRaceComplete && (
-					<NextRaceButton
-						to={`/standings/${raceId}`}
-						label="View Standings"
-					/>
-				)}
+				<div className="grid grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+					{renderDriverCards()}
+				</div>
+
+				{/* Floating Bottom Navigation Block */}
+				<div className="fixed bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black via-black/90 to-transparent backdrop-blur-md z-50">
+					<div className="max-w-6xl mx-auto flex justify-center">
+						{isRaceComplete && (
+							<NextRaceButton
+								to={`/standings/${raceId}`}
+								label="View Standings"
+							/>
+						)}
+					</div>
+				</div>
 			</div>
 		</div>
 	);
