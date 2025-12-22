@@ -1,7 +1,6 @@
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import { describe, it, expect } from 'vitest';
 import App from './App';
-import * as data from './utils/data';
 
 // We can test the navigation mostly
 describe('App Integration', () => {
