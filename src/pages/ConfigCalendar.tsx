@@ -59,7 +59,7 @@ export const ConfigCalendar: React.FC = () => {
 							<div className="absolute inset-0 h-full w-full scale-0 rounded-none transition-all duration-300 group-hover:scale-100 group-hover:bg-red-800/50"></div>
 						</button>
 						<p className="text-gray-400 text-sm text-center leading-relaxed italic">
-							"Load the official 19-track calendar for the complete championship experience."
+							Load the official 19-track calendar for the complete championship experience.
 						</p>
 					</div>
 
@@ -83,7 +83,7 @@ export const ConfigCalendar: React.FC = () => {
 							<div className="absolute inset-0 h-full w-full scale-0 rounded-none transition-all duration-300 group-hover:scale-100 group-hover:bg-white/5"></div>
 						</button>
 						<p className="text-gray-400 text-sm text-center leading-relaxed italic">
-							"Hand-pick your favorite circuits and build your own racing legacy."
+							Hand-pick your favorite circuits and build your own championship.
 						</p>
 					</div>
 				</div>

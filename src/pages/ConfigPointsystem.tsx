@@ -27,7 +27,7 @@ export const ConfigPointsystem: React.FC = () => {
 						<span className="block text-red-500 not-italic skew-x-0 tracking-widest text-xl mt-1 uppercase">System</span>
 					</h1>
 					<div className="h-1 w-24 bg-red-600 mx-auto mt-4 transform -skew-x-12"></div>
-					<p className="mt-8 text-gray-400 text-sm italic">"Choose the regulations for the 2014 championship campaign."</p>
+					<p className="mt-8 text-gray-400 text-sm italic">Choose the regulations for your championship campaign.</p>
 				</div>
 
 				<div className="grid grid-cols-1 md:grid-cols-3 gap-6 px-4">

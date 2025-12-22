@@ -33,7 +33,7 @@ export const CustomCalendarConfig: React.FC = () => {
 
 				<div className="bg-white/5 border border-white/10 rounded-xl p-4 mb-8 backdrop-blur-sm">
 					<p className="text-gray-400 text-sm leading-relaxed text-center italic">
-						"Click on the cards to add a track to the calendar. You do not have to use all the tracks (we all know the perfect amount of races is 16)."
+						Click on the cards to add a track to the calendar. You do not have to use all the tracks (we all know the perfect amount of races is 16).
 					</p>
 				</div>
 
