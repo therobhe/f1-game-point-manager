@@ -1,5 +1,6 @@
 import './App.css';
 import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
+import ScrollToTop from './components/utils/ScrollToTop';
 import { SeasonProvider } from './context/SeasonContextProvider.tsx';
 import { ConfigCalendar } from './pages/ConfigCalendar';
 import { ConfigPointsystem } from './pages/ConfigPointsystem';
@@ -28,6 +29,7 @@ function App() {
 	return (
 		<SeasonProvider>
 			<BrowserRouter>
+				<ScrollToTop />
 				<AppRouter />
 			</BrowserRouter>
 		</SeasonProvider>
