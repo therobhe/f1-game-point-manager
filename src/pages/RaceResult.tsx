@@ -61,7 +61,7 @@ export const RaceResult: React.FC = () => {
 				<div className="flex justify-center mb-12">
 					<div className="relative group">
 						<div className="absolute -inset-1 bg-gradient-to-r from-yellow-500 to-yellow-700 rounded blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
-						<div className="relative px-8 py-4 bg-white/5 backdrop-blur-sm border border-yellow-500/30 rounded-lg">
+						<div className="text-center relative px-8 py-4 bg-white/5 backdrop-blur-sm border border-yellow-500/30 rounded-lg">
 							<span className="text-xl md:text-2xl font-bold text-yellow-500 tracking-tight italic">
 								{nextPosition < pointsArray.length
 									? <><span className="text-white uppercase not-italic text-sm tracking-[0.2em] block mb-1 opacity-50">Assigning Points:</span> {pointsArray[nextPosition]} Pts</>

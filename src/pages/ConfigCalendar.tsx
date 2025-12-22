@@ -26,7 +26,7 @@ export const ConfigCalendar: React.FC = () => {
 	return (
 		<div className="flex flex-col items-center justify-center min-h-screen p-4 bg-gradient-to-b from-[#1a1a1a] to-[#0f0f0f]">
 			<div className="w-full max-w-4xl relative">
-				<div className="absolute -top-12 left-0 md:top-0">
+				<div className="absolute left-0 md:top-0">
 					<BackButton />
 				</div>
 
