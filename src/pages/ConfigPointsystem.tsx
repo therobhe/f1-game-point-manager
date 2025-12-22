@@ -34,7 +34,7 @@ export const ConfigPointsystem: React.FC = () => {
 					{[
 						{ label: 'Modern', data: pointSystem.modern, desc: 'Current F1 points: 25-18-15-12-10-8-6-4-2-1' },
 						{ label: 'Classic', data: pointSystem.classic, desc: '90s-00s Era: 10-8-6-5-4-3-2-1' },
-						{ label: 'Retro', data: pointSystem.retro, desc: 'Vintage Era: 9-6-4-3-2-1' }
+						{ label: 'Retro', data: pointSystem.retro, desc: 'Vintage Era: 10-6-4-3-2-1' }
 					].map((system) => (
 						<div key={system.label} className="flex flex-col items-center gap-4 group">
 							<button
