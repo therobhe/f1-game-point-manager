@@ -1,21 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
+
 import { BackButton } from '../components/ui/buttons/BackButton.tsx';
 import { ResetCalendarButton } from '../components/ui/buttons/ResetCalendarButton.tsx';
 import { TrackCard } from '../components/ui/cards/TrackCard.tsx';
 import { tracks } from '../utils/data.ts';
-
-const TrackCardGrid = styled.div`
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-auto-rows: 2fr;
-    grid-gap: 8px;
-
-    @media (max-width: 768px) {
-        grid-template-columns: repeat(2, 1fr);
-    }
-`;
 
 export const CustomCalendarConfig: React.FC = () => {
 	/*Todo: disable link if calendar length === 0*/
@@ -25,16 +14,29 @@ export const CustomCalendarConfig: React.FC = () => {
 		);
 	};
 	return (
-		<>
-			{/*Todo: introduce current calendar display*/}
-			<BackButton />
-			<h1>Custom Calendar Config</h1>
-			<span>Click on the cards to add a track to the calendar. You do not have to use all the tracks (we all know the perfect amount of races is 16)</span>
-			<TrackCardGrid>
+		<div className="flex flex-col gap-6 p-4 pb-24"> {/* Added pb-24 for safe scrolling area */}
+			<div className="flex justify-between items-center">
+				<BackButton />
+				<h1 className="text-2xl font-bold text-white">Custom Calendar Config</h1>
+			</div>
+
+			<p className="text-gray-300 text-sm text-center max-w-2xl mx-auto">
+				Click on the cards to add a track to the calendar. You do not have to use all the tracks (we all know the perfect amount of races is 16).
+			</p>
+
+			<div className="grid grid-cols-2 md:grid-cols-4 gap-2">
 				{renderTrackCards()}
-			</TrackCardGrid>
-			<ResetCalendarButton />
-			<Link to="/points">Next</Link>
-		</>
+			</div>
+
+			<div className="flex flex-col items-center gap-4 mt-8 pt-6 border-t border-white/10 w-full">
+				<ResetCalendarButton />
+				<Link
+					to="/points"
+					className="px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors shadow-lg"
+				>
+					Next
+				</Link>
+			</div>
+		</div>
 	);
 };
