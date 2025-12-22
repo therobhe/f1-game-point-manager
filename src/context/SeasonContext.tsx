@@ -12,6 +12,7 @@ type SeasonContextProps = {
 	resetRaceCalendar: () => void;
 	activePointSystem: number[] | null;
 	setActivePointSystem: Dispatch<SetStateAction<number[] | null>>;
+	resetSeason: () => void;
 };
 
 export const SeasonContext = createContext<SeasonContextProps | undefined>(undefined);

@@ -20,20 +20,26 @@ const defaultDriverPoints: DriverPoints = drivers.reduce(
 	{} as DriverPoints
 );
 
-export const SeasonProvider = ({ children }: {children: ReactNode}) => {
-	const [ raceCalendar, setRaceCalendar ] = useState<Track[]>([]);
-	const [ currentTrack, setCurrentTrack ] = useState<Track>(tracks[0]);
-	const [ driverPoints, setDriverPoints ] = useState<DriverPoints>(defaultDriverPoints);
-	const [ activePointSystem, setActivePointSystem ] = useState<number[] | null>(null);
-	
+export const SeasonProvider = ({ children }: { children: ReactNode }) => {
+	const [raceCalendar, setRaceCalendar] = useState<Track[]>([]);
+	const [currentTrack, setCurrentTrack] = useState<Track>(tracks[0]);
+	const [driverPoints, setDriverPoints] = useState<DriverPoints>(defaultDriverPoints);
+	const [activePointSystem, setActivePointSystem] = useState<number[] | null>(null);
+
 	const addSingleRaceToRaceCalendar = (trackToAdd: Track) => {
-		setRaceCalendar(prev => [ ...prev, trackToAdd ]);
+		setRaceCalendar(prev => [...prev, trackToAdd]);
 	};
-	
+
 	const resetRaceCalendar = () => {
 		setRaceCalendar([]);
 	};
-	
+
+	const resetSeason = () => {
+		setRaceCalendar([]);
+		setDriverPoints(defaultDriverPoints);
+		setActivePointSystem(null);
+	};
+
 	const providedValues = {
 		currentTrack,
 		setCurrentTrack,
@@ -44,9 +50,10 @@ export const SeasonProvider = ({ children }: {children: ReactNode}) => {
 		addSingleRaceToRaceCalendar,
 		resetRaceCalendar,
 		activePointSystem,
-		setActivePointSystem
+		setActivePointSystem,
+		resetSeason
 	};
-	
+
 	return (
 		<SeasonContext.Provider value={providedValues}>
 			{children}
