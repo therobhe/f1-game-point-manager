@@ -3,6 +3,39 @@ import { useSeasonContext } from '../context/hooks';
 import { Link } from 'react-router-dom';
 import { drivers, teams } from '../utils/data';
 
+const MobileResultItem: React.FC<{
+	position: number;
+	name: string;
+	points: number;
+	label: string;
+	color: string;
+	delay: string;
+}> = ({ position, name, points, label, color, delay }) => {
+	return (
+		<div className={`
+			flex items-center gap-4 p-4 mb-3 
+			${color} border-l-4 border-white/50 
+			transform -skew-x-6 animate-fade-in-up ${delay}
+			shadow-lg backdrop-blur-md
+		`}>
+			<div className="flex-shrink-0 w-10 text-3xl font-black italic text-white/40 transform skew-x-6">
+				{position}
+			</div>
+			<div className="flex-1 transform skew-x-6">
+				<div className="text-lg font-black italic uppercase text-white tracking-tight leading-tight line-clamp-2 overflow-hidden">
+					{name}
+				</div>
+				<div className="text-[10px] text-red-500 font-bold uppercase tracking-widest mt-1 opacity-80">
+					{label}
+				</div>
+			</div>
+			<div className="text-xl font-black italic text-white transform skew-x-6 flex items-baseline">
+				{points} <span className="text-[10px] not-italic opacity-50 ml-1">PTS</span>
+			</div>
+		</div>
+	);
+};
+
 const PodiumItem: React.FC<{
 	position: number;
 	name: string;
@@ -17,7 +50,7 @@ const PodiumItem: React.FC<{
 	return (
 		<div className={`flex flex-col items-center ${order} ${delay} animate-fade-in-up w-full max-w-[120px] md:max-w-none px-1 md:px-0`}>
 			<div className="relative mb-6 text-center w-full">
-				<div className="text-sm md:text-xl font-black italic tracking-tighter text-white uppercase transform -skew-x-12 leading-tight truncate px-1">
+				<div className="text-sm md:text-xl font-black italic tracking-tighter text-white uppercase transform -skew-x-12 leading-tight truncate px-1 overflow-hidden">
 					{name}
 				</div>
 				<div className="text-[8px] md:text-xs text-red-500 font-bold uppercase tracking-[0.1em] md:tracking-[0.2em] mt-1 opacity-80">
@@ -106,7 +139,42 @@ export const Finish: React.FC = () => {
 					<div className="w-2 h-8 bg-red-600 transform -skew-x-12"></div>
 					<h2 className="text-3xl font-black italic uppercase text-white tracking-tighter">Drivers Championship</h2>
 				</div>
-				<div className="flex justify-center items-end gap-2 md:gap-8 min-h-[400px]">
+				{/* Mobile List View */}
+				<div className="md:hidden flex flex-col w-full max-w-md mx-auto">
+					{topDrivers[0] && (
+						<MobileResultItem
+							position={1}
+							name={topDrivers[0].name}
+							points={topDrivers[0].points}
+							label={topDrivers[0].nationality}
+							color="bg-gradient-to-r from-yellow-500/20 to-yellow-600/5 border-yellow-500/50"
+							delay="animation-delay-0"
+						/>
+					)}
+					{topDrivers[1] && (
+						<MobileResultItem
+							position={2}
+							name={topDrivers[1].name}
+							points={topDrivers[1].points}
+							label={topDrivers[1].nationality}
+							color="bg-white/10 border-white/20"
+							delay="animation-delay-200"
+						/>
+					)}
+					{topDrivers[2] && (
+						<MobileResultItem
+							position={3}
+							name={topDrivers[2].name}
+							points={topDrivers[2].points}
+							label={topDrivers[2].nationality}
+							color="bg-amber-900/10 border-amber-900/30"
+							delay="animation-delay-400"
+						/>
+					)}
+				</div>
+
+				{/* Desktop Podium View */}
+				<div className="hidden md:flex justify-center items-end gap-2 md:gap-8 min-h-[400px]">
 					{topDrivers[1] && (
 						<PodiumItem
 							position={2}
@@ -146,7 +214,42 @@ export const Finish: React.FC = () => {
 					<div className="w-2 h-8 bg-blue-600 transform -skew-x-12"></div>
 					<h2 className="text-3xl font-black italic uppercase text-white tracking-tighter">Constructors Championship</h2>
 				</div>
-				<div className="flex justify-center items-end gap-2 md:gap-8 min-h-[400px]">
+				{/* Mobile List View */}
+				<div className="md:hidden flex flex-col w-full max-w-md mx-auto">
+					{topConstructors[0] && (
+						<MobileResultItem
+							position={1}
+							name={topConstructors[0].name}
+							points={topConstructors[0].points}
+							label="Team"
+							color="bg-gradient-to-r from-red-600/20 to-red-800/5 border-red-600/50"
+							delay="animation-delay-0"
+						/>
+					)}
+					{topConstructors[1] && (
+						<MobileResultItem
+							position={2}
+							name={topConstructors[1].name}
+							points={topConstructors[1].points}
+							label="Team"
+							color="bg-blue-900/10 border-blue-900/30"
+							delay="animation-delay-200"
+						/>
+					)}
+					{topConstructors[2] && (
+						<MobileResultItem
+							position={3}
+							name={topConstructors[2].name}
+							points={topConstructors[2].points}
+							label="Team"
+							color="bg-green-900/10 border-green-900/30"
+							delay="animation-delay-400"
+						/>
+					)}
+				</div>
+
+				{/* Desktop Podium View */}
+				<div className="hidden md:flex justify-center items-end gap-2 md:gap-8 min-h-[400px]">
 					{topConstructors[1] && (
 						<PodiumItem
 							position={2}

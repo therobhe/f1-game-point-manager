@@ -15,7 +15,7 @@ export const Standings: React.FC = () => {
         <div className="flex flex-col min-h-screen p-4 bg-gradient-to-b from-[#1a1a1a] to-[#0f0f0f] pb-32">
             <div className="w-full max-w-6xl mx-auto relative mt-8">
                 <div className="text-center mb-12">
-                    <h1 className="text-3xl md:text-5xl font-black italic tracking-tighter text-white uppercase transform -skew-x-12 inline-block">
+                    <h1 className="text-2xl md:text-5xl font-black italic tracking-tighter text-white uppercase transform -skew-x-12 inline-block">
                         Championship
                         <span className="block text-red-500 not-italic skew-x-0 tracking-widest text-xl mt-1 uppercase">
                             Standings
