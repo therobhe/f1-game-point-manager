@@ -40,12 +40,12 @@ export const CustomPointSystemConfig: React.FC = () => {
 				
 				<div className="text-center mt-16 md:mt-0 mb-12">
 					<h1
-						className="text-4xl md:text-5xl font-black italic tracking-tighter text-white uppercase transform inline-block">
+						className="text-4xl md:text-5xl font-black italic tracking-tighter text-white uppercase transform -skew-x-12 inline-block">
 						Custom
 						<span
 							className="block text-red-500 not-italic skew-x-0 tracking-widest text-xl mt-1 uppercase">Scoring</span>
 					</h1>
-					<div className="h-1 w-24 bg-red-600 mx-auto mt-4 transform"></div>
+					<div className="h-1 w-24 bg-red-600 mx-auto mt-4 transform -skew-x-12"></div>
 					<p className="mt-8 text-gray-400 text-sm italic">Define points for each finishing position.</p>
 				</div>
 				
@@ -56,26 +56,26 @@ export const CustomPointSystemConfig: React.FC = () => {
 								<label className="text-gray-500 text-xs uppercase tracking-wider italic">
 									Pos {index + 1}
 								</label>
-								<div className="flex items-center justify-center gap-1">
+								<div className="flex items-center justify-center">
 									<button
 										type="button"
 										onClick={() => handlePointChange(index, -1)}
-										className="px-3 py-1 bg-white/10 text-white font-bold rounded-md hover:bg-red-600 transition-colors transform"
+										className="px-3 py-1 bg-white/10 text-white font-bold rounded-l-md rounded-r-none hover:bg-red-600 transition-colors transform -skew-x-12 transform-gpu"
 									>
-										<span className="inline-block transform">-</span>
+										<span className="inline-block transform skew-x-12">-</span>
 									</button>
 									<input
 										type="number"
 										value={point}
 										onChange={(e) => handleInputChange(index, e.target.value)}
-										className="w-20 bg-white/5 border-l-4 border-red-600 text-white text-center py-3 font-bold text-xl focus:outline-none focus:bg-white/10 transition-colors"
+										className="w-20 bg-white/5 border-y-2 border-red-600 text-white text-center py-3 font-bold text-xl focus:outline-none focus:bg-white/10 transition-colors transform-gpu"
 									/>
 									<button
 										type="button"
 										onClick={() => handlePointChange(index, 1)}
-										className="px-3 py-1 bg-white/10 text-white font-bold rounded-md hover:bg-red-600 transition-colors transform"
+										className="px-3 py-1 bg-white/10 text-white font-bold rounded-r-md rounded-l-none hover:bg-red-600 transition-colors transform -skew-x-12 transform-gpu"
 									>
-										<span className="inline-block transform">+</span>
+										<span className="inline-block transform skew-x-12">+</span>
 									</button>
 								</div>
 							</div>
@@ -89,7 +89,7 @@ export const CustomPointSystemConfig: React.FC = () => {
 								relative overflow-hidden group
 								px-16 py-3
 								bg-blue-600 rounded-none border-l-4 border-white
-								transform
+								transform -skew-x-12 transform-gpu
 								transition-all duration-300 ease-out
                                 hover:bg-blue-700 hover:scale-105 hover:shadow-[0_0_20px_rgba(37,99,235,0.5)]
                                 flex items-center justify-center
@@ -97,7 +97,7 @@ export const CustomPointSystemConfig: React.FC = () => {
                             "
 						>
 							<span
-								className="relative z-10 block text-xl font-bold text-white uppercase tracking-wider transform">
+								className="relative z-10 block text-xl font-bold text-white uppercase tracking-wider transform skew-x-12">
 								Start Season
 							</span>
 						</button>

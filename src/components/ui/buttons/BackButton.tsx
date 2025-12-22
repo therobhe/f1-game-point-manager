@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom';
 
 export const BackButton = () => {
 	const navigate = useNavigate();
-
+	
 	return (
 		<button
 			onClick={() => navigate(-1)}
@@ -11,7 +11,7 @@ export const BackButton = () => {
 				px-6 py-2 
 				bg-white/5 hover:bg-white/10
 				border border-white/20 hover:border-white/40
-				transform -skew-x-12
+				transform -skew-x-12 transform-gpu
 				transition-all duration-300 ease-out
 				hover:shadow-[0_0_15px_rgba(255,255,255,0.1)]
 			"

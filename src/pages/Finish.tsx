@@ -142,7 +142,7 @@ export const Finish: React.FC = () => {
             `}</style>
 			
 			{/* Drivers Podium */}
-			<div className="mb-24 w-full max-w-5xl">
+			<div className="mb-8 w-full max-w-5xl">
 				<div className="flex items-center gap-3 mb-12 justify-center">
 					<div className="w-2 h-8 bg-red-600 transform -skew-x-12"></div>
 					<h2 className="text-3xl font-black italic uppercase text-white tracking-tighter">Drivers Championship</h2>
@@ -217,7 +217,7 @@ export const Finish: React.FC = () => {
 			</div>
 			
 			{/* Constructors Podium */}
-			<div className="w-full max-w-5xl mb-32">
+			<div className="w-full max-w-5xl mb-8">
 				<div className="flex items-center gap-3 mb-12 justify-center">
 					<div className="w-2 h-8 bg-blue-600 transform -skew-x-12"></div>
 					<h2 className="text-3xl font-black italic uppercase text-white tracking-tighter">Constructors
@@ -292,7 +292,7 @@ export const Finish: React.FC = () => {
 				</div>
 			</div>
 			
-			<div className="mt-12">
+			<div>
 				<Link
 					to="/"
 					onClick={resetSeason}
