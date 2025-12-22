@@ -13,7 +13,6 @@ export const ConfigPointSystem: React.FC = () => {
 		navigate('/race/1');
 	};
 	
-	/*Todo: implement option for custom scoring*/
 	return (
 		<div
 			className="flex flex-col items-center justify-center min-h-screen p-4 bg-linear-to-b from-[#1a1a1a] to-[#0f0f0f]">
