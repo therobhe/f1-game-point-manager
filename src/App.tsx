@@ -18,7 +18,7 @@ const AppRouter = () => {
 			<Route path="/track-config" element={<ConfigCalendar />} />
 			<Route path="/custom-calendar" element={<CustomCalendarConfig />} />
 			<Route path="/points" element={<ConfigPointSystem />} />
-			<Route path="/custom-pointsystem-config" element={<custom-pointsystem-config />} />
+			<Route path="/custom-pointsystem-config" element={<CustomCalendarConfig />} />
 			<Route path="/race/:raceId" element={<RaceResult key={location.pathname} />} />
 			<Route path="/standings/:raceId" element={<Standings />} />
 			<Route path="/finish" element={<Finish />} />
