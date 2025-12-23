@@ -1,6 +1,6 @@
 import React from 'react';
-import { useSeasonContext } from '../../../context/hooks.ts';
-import type { Track } from '../../../context/types.ts';
+import { useSeasonContext } from '../../../../context/hooks.ts';
+import type { Track } from '../../../../context/types.ts';
 
 export const TrackCard: React.FC<Track> = ({ id, name, nationality }) => {
 	const { addSingleRaceToRaceCalendar } = useSeasonContext();

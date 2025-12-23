@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
-import { useSeasonContext } from '../context/hooks';
-import { drivers, teams } from '../utils/data';
+import { useSeasonContext } from '../../context/hooks';
+import { drivers, teams } from '../../utils/data';
 
 export const StandingsTable: React.FC = () => {
 	const { driverPoints } = useSeasonContext();

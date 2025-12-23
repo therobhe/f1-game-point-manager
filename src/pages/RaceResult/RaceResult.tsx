@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { NextRaceButton } from '../components/ui/buttons/NextRaceButton.tsx';
-import { DriverCard } from '../components/ui/cards/DriverCard.tsx';
-import { useSeasonContext } from '../context/hooks.ts';
-import { drivers } from '../utils/data.ts';
+import { NextRaceButton } from '../../components/ui/buttons/NextRaceButton/NextRaceButton.tsx';
+import { DriverCard } from '../../components/ui/cards/DriverCard/DriverCard.tsx';
+import { useSeasonContext } from '../../context/hooks.ts';
+import { drivers } from '../../utils/data.ts';
 
 export const RaceResult: React.FC = () => {
 	const { raceId } = useParams<{raceId: string}>();

@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import { Link } from 'react-router-dom';
-import { useSeasonContext } from '../context/hooks';
-import { drivers, teams } from '../utils/data';
+import { useSeasonContext } from '../../context/hooks';
+import { drivers, teams } from '../../utils/data';
 
 const MobileResultItem: React.FC<{
 	position: number;

@@ -1,11 +1,11 @@
 import { render, screen } from '@testing-library/react';
 import { describe, it, expect, vi } from 'vitest';
-import { StandingsTable } from './StandingsTable';
-import * as hooks from '../context/hooks';
-import { teams } from '../utils/data';
+import { StandingsTable } from '../StandingsTable/StandingsTable';
+import * as hooks from '../../context/hooks';
+import { teams } from '../../utils/data';
 
 // Mock the context hook
-vi.mock('../context/hooks', () => ({
+vi.mock('../../context/hooks', () => ({
     useSeasonContext: vi.fn(),
 }));
 

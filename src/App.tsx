@@ -1,14 +1,14 @@
 import './App.css';
 import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
-import ScrollToTop from './components/utils/ScrollToTop';
+import ScrollToTop from './components/utils/ScrollToTop/ScrollToTop';
 import { SeasonProvider } from './context/SeasonContextProvider.tsx';
-import { ConfigCalendar } from './pages/ConfigCalendar';
-import { ConfigPointSystem } from './pages/ConfigPointSystem.tsx';
-import { CustomCalendarConfig } from './pages/CustomCalendarConfig.tsx';
-import { Finish } from './pages/Finish';
-import { MainMenu } from './pages/MainMenu';
-import { RaceResult } from './pages/RaceResult';
-import { Standings } from './pages/Standings';
+import { ConfigCalendar } from './pages/ConfigCalendar/ConfigCalendar';
+import { ConfigPointSystem } from './pages/ConfigPointSystem/ConfigPointSystem.tsx';
+import { CustomCalendarConfig } from './pages/CustomCalendarConfig/CustomCalendarConfig.tsx';
+import { Finish } from './pages/Finish/Finish';
+import { MainMenu } from './pages/MainMenu/MainMenu';
+import { RaceResult } from './pages/RaceResult/RaceResult';
+import { Standings } from './pages/Standings/Standings';
 
 const AppRouter = () => {
 	const location = useLocation();

@@ -1,8 +1,8 @@
 import React from "react";
 import { useParams } from 'react-router-dom';
-import { StandingsTable } from '../components/StandingsTable.tsx';
-import { NextRaceButton } from '../components/ui/buttons/NextRaceButton.tsx';
-import { useSeasonContext } from '../context/hooks.ts';
+import { StandingsTable } from '../../components/StandingsTable/StandingsTable.tsx';
+import { NextRaceButton } from '../../components/ui/buttons/NextRaceButton/NextRaceButton.tsx';
+import { useSeasonContext } from '../../context/hooks.ts';
 
 export const Standings: React.FC = () => {
     const { raceId } = useParams<{ raceId: string }>();

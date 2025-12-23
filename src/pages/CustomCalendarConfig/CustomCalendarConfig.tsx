@@ -1,12 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import { BackButton } from '../components/ui/buttons/BackButton.tsx';
-import { ResetCalendarButton } from '../components/ui/buttons/ResetCalendarButton.tsx';
-import { TrackCard } from '../components/ui/cards/TrackCard.tsx';
-import { useSeasonContext } from '../context/hooks.ts';
-import { tracks } from '../utils/data.ts';
-import { CalendarPreview } from '../components/CalendarPreview.tsx';
+import { BackButton } from '../../components/ui/buttons/BackButton/BackButton.tsx';
+import { ResetCalendarButton } from '../../components/ui/buttons/ResetCalendarButton/ResetCalendarButton.tsx';
+import { TrackCard } from '../../components/ui/cards/TrackCard/TrackCard.tsx';
+import { useSeasonContext } from '../../context/hooks.ts';
+import { tracks } from '../../utils/data.ts';
+import { CalendarPreview } from '../../components/CalendarPreview/CalendarPreview.tsx';
 
 export const CustomCalendarConfig: React.FC = () => {
 	const { raceCalendar } = useSeasonContext();

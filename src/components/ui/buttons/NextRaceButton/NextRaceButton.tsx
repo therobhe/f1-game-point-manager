@@ -1,5 +1,5 @@
 import { useNavigate, useParams } from 'react-router-dom';
-import { useSeasonContext } from '../../../context/hooks.ts';
+import { useSeasonContext } from '../../../../context/hooks.ts';
 
 export const NextRaceButton: React.FC<{to?: string; label?: string}> = ({ to, label }) => {
 	const navigate = useNavigate();

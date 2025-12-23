@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { BackButton } from '../components/ui/buttons/BackButton';
-import { useSeasonContext } from '../context/hooks';
+import { BackButton } from '../../components/ui/buttons/BackButton/BackButton';
+import { useSeasonContext } from '../../context/hooks';
 
 export const CustomPointSystemConfig: React.FC = () => {
 	const { setActivePointSystem } = useSeasonContext();

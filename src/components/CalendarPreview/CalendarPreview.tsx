@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSeasonContext } from '../context/hooks.ts';
+import { useSeasonContext } from '../../context/hooks.ts';
 
 export const CalendarPreview: React.FC = () => {
     const { raceCalendar, setRaceCalendar } = useSeasonContext();

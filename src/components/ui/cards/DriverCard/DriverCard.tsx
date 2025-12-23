@@ -1,6 +1,6 @@
 import React from 'react';
-import type { Driver } from '../../../context/types.ts';
-import { getTeamNameFromId } from '../../../utils/utils.ts';
+import type { Driver } from '../../../../context/types.ts';
+import { getTeamNameFromId } from '../../../../utils/utils.ts';
 
 type DriverCardProps = Driver & {
 	onClick: () => void;

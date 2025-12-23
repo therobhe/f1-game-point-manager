@@ -1,4 +1,4 @@
-import { useSeasonContext } from '../../../context/hooks.ts';
+import { useSeasonContext } from '../../../../context/hooks.ts';
 
 export const ResetCalendarButton = () => {
 	const { resetRaceCalendar } = useSeasonContext();
