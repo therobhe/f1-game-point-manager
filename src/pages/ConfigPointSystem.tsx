@@ -69,7 +69,7 @@ export const ConfigPointSystem: React.FC = () => {
 				<div className="grid grid-cols-1 md:grid-cols-2 gap-6 px-4 mt-8">
 					<div className="flex flex-col items-center gap-4 group">
 						<button
-							onClick={() => navigate('/customPointsystemconfig')}
+							onClick={() => navigate('/custom-pointsystem-config')}
 							className="
 								relative overflow-hidden
 								px-8 py-10 w-full
