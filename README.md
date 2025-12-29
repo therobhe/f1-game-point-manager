@@ -5,11 +5,19 @@ point-storing app so that you can track the point course of a season :)
 
 ## Features
 
+### Scoring
 - keep track of race results by selecting the drivers per position
 - keep track of the constructor championship
-- option to drive the 2014 race calendar OR create a custom calendar
-- you can use the original 2014 point system or use choose between the one from 2006-2009, the legacy system OR create
-  your own one
+
+### Race Calendar
+- option to track the points for the original 2014 race calendar OR create a custom calendar of custom length
+  
+### Point System
+- you can choose between:
+  - the current point system (as used in the real 2014 season) 
+  - the one from 2006-2009
+  - the legacy system
+  - your own custom point system
 
 ## Tech Stack
 
@@ -20,7 +28,7 @@ This project uses the following technologies (check package.json for exact versi
 - Tailwind CSS
 - React Router
 - Vite
-- ESLint + Prettier
+- ESLint
 - Vitest / Jest
 - npm
 
