@@ -6,7 +6,7 @@ describe('DriverCard', () => {
     const mockDriver = {
         id: 1,
         name: 'Lewis Hamilton',
-        nationality: 'British',
+        nationality: 'Great Britain' as const,
         teamId: 1,
     };
 
@@ -14,7 +14,7 @@ describe('DriverCard', () => {
         render(<DriverCard {...mockDriver} onClick={vi.fn()} />);
 
         expect(screen.getByText('Lewis Hamilton')).toBeInTheDocument();
-        expect(screen.getByText('British')).toBeInTheDocument();
+        expect(screen.getByText('Great Britain')).toBeInTheDocument();
         // Assuming getTeamNameFromId(1) returns something specific, 
         // but we can just check if it renders a team name.
         expect(screen.getByText(/Mercedes/i) || screen.getByText(/Team/i)).toBeInTheDocument();
