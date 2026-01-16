@@ -25,7 +25,8 @@ type Nationality =
 	| 'Monaco'
 	| 'Spain'
 	| 'Malaysia'
-	| 'Australia';
+	| 'Australia'
+	| 'Switzerland';
 
 export type Driver = {
 	id: number;
@@ -37,6 +38,7 @@ export type Driver = {
 export type Team = {
 	id: number;
 	name: string;
+	nationality: Nationality;
 }
 
 export type Track = {
