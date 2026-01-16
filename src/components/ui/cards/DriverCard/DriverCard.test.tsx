@@ -33,4 +33,16 @@ describe('DriverCard', () => {
 
         expect(screen.getByRole('button')).toBeDisabled();
     });
+
+    it('displays position overlay when assignedPosition is provided', () => {
+        render(<DriverCard {...mockDriver} onClick={vi.fn()} assignedPosition={1} />);
+
+        expect(screen.getByText('P1')).toBeInTheDocument();
+    });
+
+    it('does not display position overlay when assignedPosition is not provided', () => {
+        render(<DriverCard {...mockDriver} onClick={vi.fn()} />);
+
+        expect(screen.queryByText(/^P\d+$/)).not.toBeInTheDocument();
+    });
 });
