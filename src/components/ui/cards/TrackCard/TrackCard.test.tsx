@@ -11,7 +11,7 @@ describe('TrackCard', () => {
     const mockTrack = {
         id: 1,
         name: 'Monaco',
-        nationality: 'Monegasque',
+        nationality: 'Monaco' as const,
     };
 
     it('renders track information correctly', () => {
@@ -21,8 +21,7 @@ describe('TrackCard', () => {
 
         render(<TrackCard {...mockTrack} />);
 
-        expect(screen.getByText('Monaco')).toBeInTheDocument();
-        expect(screen.getByText('Monegasque')).toBeInTheDocument();
+        expect(screen.getAllByText('Monaco')).toHaveLength(2);
     });
 
     it('calls addSingleRaceToRaceCalendar when clicked', () => {

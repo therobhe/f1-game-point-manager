@@ -23,7 +23,7 @@ const MobileResultItem: React.FC<{
 			</div>
 			<div className="flex-1 transform skew-x-6">
 				<div
-					className="text-lg font-black italic uppercase text-white tracking-tight leading-tight line-clamp-2 overflow-hidden">
+					className="text-lg font-black uppercase text-white tracking-tight leading-tight line-clamp-2 overflow-hidden">
 					{name}
 				</div>
 				<div className="text-[10px] text-red-500 font-bold uppercase tracking-widest mt-1 opacity-80">
@@ -53,7 +53,7 @@ const PodiumItem: React.FC<{
 			className={`flex flex-col items-center ${order} ${delay} animate-fade-in-up w-full max-w-[120px] md:max-w-none px-1 md:px-0`}>
 			<div className="relative mb-6 text-center w-full">
 				<div
-					className="text-sm md:text-xl font-black italic tracking-tighter text-white uppercase transform -skew-x-12 leading-tight truncate px-1 overflow-hidden">
+					className="text-sm md:text-xl font-black tracking-tighter text-white uppercase transform -skew-x-12 leading-tight truncate px-1 overflow-hidden">
 					{name}
 				</div>
 				<div
@@ -120,7 +120,7 @@ export const Finish: React.FC = () => {
 				<div
 					className="absolute -inset-1 bg-gradient-to-r from-red-600 to-yellow-600 rounded-lg blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
 				<h1
-					className="relative text-5xl md:text-7xl font-black italic tracking-tighter text-white uppercase transform -skew-x-12">
+					className="relative text-5xl md:text-7xl font-black italic tracking-tighter text-white uppercase transform -skew-x-12 text-center">
 					SEASON
 					<span className="block text-2xl md:text-3xl font-bold tracking-[0.4em] text-red-500 mt-2 not-italic skew-x-0">
 						FINALE
@@ -230,7 +230,7 @@ export const Finish: React.FC = () => {
 							position={1}
 							name={topConstructors[0].name}
 							points={topConstructors[0].points}
-							label="Team"
+							label={topConstructors[0].nationality}
 							color="bg-gradient-to-b from-yellow-500/30 to-yellow-600/10 backdrop-blur-md border border-yellow-500/50"
 							delay="animation-delay-0"
 						/>
@@ -240,7 +240,7 @@ export const Finish: React.FC = () => {
 							position={2}
 							name={topConstructors[1].name}
 							points={topConstructors[1].points}
-							label="Team"
+							label={topConstructors[1].nationality}
 							color="bg-white/10 backdrop-blur-md border border-white/10"
 							delay="animation-delay-200"
 						/>
@@ -250,7 +250,7 @@ export const Finish: React.FC = () => {
 							position={3}
 							name={topConstructors[2].name}
 							points={topConstructors[2].points}
-							label="Team"
+							label={topConstructors[2].nationality}
 							color="bg-amber-900/20 backdrop-blur-md border border-amber-900/30"
 							delay="animation-delay-400"
 						/>
@@ -264,7 +264,7 @@ export const Finish: React.FC = () => {
 							position={2}
 							name={topConstructors[1].name}
 							points={topConstructors[1].points}
-							label="Team"
+							label={topConstructors[1].nationality}
 							color="bg-blue-900/20 backdrop-blur-md border border-blue-900/30"
 							delay="animation-delay-200"
 						/>
@@ -274,7 +274,7 @@ export const Finish: React.FC = () => {
 							position={1}
 							name={topConstructors[0].name}
 							points={topConstructors[0].points}
-							label="Team"
+							label={topConstructors[0].nationality}
 							color="bg-gradient-to-b from-red-600/30 to-red-800/10 backdrop-blur-md border border-red-600/50"
 							delay="animation-delay-0"
 						/>
@@ -284,7 +284,7 @@ export const Finish: React.FC = () => {
 							position={3}
 							name={topConstructors[2].name}
 							points={topConstructors[2].points}
-							label="Team"
+							label={topConstructors[2].nationality}
 							color="bg-green-900/20 backdrop-blur-md border border-green-900/30"
 							delay="animation-delay-400"
 						/>

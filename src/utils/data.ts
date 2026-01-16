@@ -66,17 +66,17 @@ export const drivers: Driver[] = [
  * @type {Team[]}
  */
 export const teams: Team[] = [
-	{ id: 1, name: 'Mercedes-AMG Petronas F1 Team' },
-	{ id: 2, name: 'Red Bull Racing' },
-	{ id: 3, name: 'Scuderia Ferrari' },
-	{ id: 4, name: 'Lotus F1 Team' },
-	{ id: 5, name: 'McLaren Mercedes' },
-	{ id: 6, name: 'Sahara Force India F1 Team' },
-	{ id: 7, name: 'Sauber F1 Team' },
-	{ id: 8, name: 'Scuderia Toro Rosso' },
-	{ id: 9, name: 'Williams Martini Racing' },
-	{ id: 10, name: 'Marussia F1 Team' },
-	{ id: 11, name: 'Caterham F1 Team' }
+	{ id: 1, name: 'Mercedes-AMG Petronas F1 Team', nationality: 'Germany' },
+	{ id: 2, name: 'Red Bull Racing', nationality: 'Austria' },
+	{ id: 3, name: 'Scuderia Ferrari', nationality: 'Italy' },
+	{ id: 4, name: 'Lotus F1 Team', nationality: 'Great Britain' },
+	{ id: 5, name: 'McLaren Mercedes', nationality: 'Great Britain' },
+	{ id: 6, name: 'Sahara Force India F1 Team', nationality: 'Great Britain' },
+	{ id: 7, name: 'Sauber F1 Team', nationality: 'Switzerland' },
+	{ id: 8, name: 'Scuderia Toro Rosso', nationality: 'Italy' },
+	{ id: 9, name: 'Williams Martini Racing', nationality: 'Great Britain' },
+	{ id: 10, name: 'Marussia F1 Team', nationality: 'Russia' },
+	{ id: 11, name: 'Caterham F1 Team', nationality: 'Malaysia' }
 ];
 
 export const pointSystem = {

@@ -24,9 +24,9 @@ export const CustomCalendarConfig: React.FC = () => {
 				<div className="flex items-center mb-8">
 					<BackButton />
 					<div className="ml-6">
-						<h1 className="text-3xl md:text-5xl font-black italic tracking-tighter text-white uppercase transform -skew-x-12 inline-flex flex-col md:flex-row md:items-baseline md:gap-4">
+						<h1 className="text-3xl md:text-5xl font-black italic tracking-tighter text-white uppercase transform -skew-x-12 inline-flex flex-col md:gap-4">
 							Track
-							<span className="block md:inline-block text-red-500 not-italic skew-x-0 tracking-widest text-lg md:text-2xl uppercase">Selection</span>
+							<span className="block text-red-500 not-italic skew-x-0 tracking-widest text-lg md:text-2xl uppercase">Selection</span>
 						</h1>
 					</div>
 				</div>
