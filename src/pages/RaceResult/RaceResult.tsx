@@ -26,6 +26,10 @@ export const RaceResult: React.FC = () => {
 		// If driver is already assigned, remove the assignment
 		if(assignedDriverIds.includes(driverId)) {
 			const assignedPosition = driverPositions[driverId];
+			
+			// Validate that the position exists and is within bounds
+			if (assignedPosition === undefined || assignedPosition < 0 || assignedPosition >= pointsArray.length) return;
+			
 			const pointsToRemove = pointsArray[assignedPosition];
 			
 			// Remove points
@@ -37,15 +41,13 @@ export const RaceResult: React.FC = () => {
 			// Remove from assigned drivers
 			setAssignedDriverIds(ids => ids.filter(id => id !== driverId));
 			
-			// Remove position mapping
-			setDriverPositions(prev => {
-				const newPositions = { ...prev };
-				delete newPositions[driverId];
-				return newPositions;
-			});
+			// Remove position mapping and calculate remaining positions
+			const newPositions = { ...driverPositions };
+			delete newPositions[driverId];
+			setDriverPositions(newPositions);
 			
 			// Recalculate current position (find the earliest unassigned position)
-			const assignedPositions = Object.values(driverPositions).filter(pos => pos !== assignedPosition);
+			const assignedPositions = Object.values(newPositions);
 			const lowestUnassignedPosition = pointsArray.findIndex((points, index) => 
 				points > 0 && !assignedPositions.includes(index)
 			);
