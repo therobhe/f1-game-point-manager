@@ -9,6 +9,7 @@ export const RaceResult: React.FC = () => {
 	const { raceId } = useParams<{raceId: string}>();
 	const { setDriverPoints, activePointSystem, raceCalendar } = useSeasonContext();
 	const [ assignedDriverIds, setAssignedDriverIds ] = useState<number[]>([]);
+	const [ driverPositions, setDriverPositions ] = useState<{[driverId: number]: number}>({});
 	const [ currentPosition, setCurrentPosition ] = useState(0);
 	
 	// Find the current track from the race calendar
@@ -22,8 +23,40 @@ export const RaceResult: React.FC = () => {
 	const nextPositionWithPoints = getNextPositionWithPoints(currentPosition);
 	
 	const handleDriverClick = (driverId: number) => {
+		// If driver is already assigned, remove the assignment
+		if(assignedDriverIds.includes(driverId)) {
+			const assignedPosition = driverPositions[driverId];
+			
+			// Validate that the position exists and is within bounds
+			if (assignedPosition === undefined || assignedPosition < 0 || assignedPosition >= pointsArray.length) return;
+			
+			const pointsToRemove = pointsArray[assignedPosition];
+			
+			// Remove points
+			setDriverPoints(prev => ({
+				...prev,
+				[driverId]: (prev[driverId] || 0) - pointsToRemove
+			}));
+			
+			// Remove from assigned drivers
+			setAssignedDriverIds(ids => ids.filter(id => id !== driverId));
+			
+			// Remove position mapping and calculate remaining positions
+			const newPositions = { ...driverPositions };
+			delete newPositions[driverId];
+			setDriverPositions(newPositions);
+			
+			// Recalculate current position (find the earliest unassigned position)
+			const assignedPositions = Object.values(newPositions);
+			const lowestUnassignedPosition = pointsArray.findIndex((points, index) => 
+				points > 0 && !assignedPositions.includes(index)
+			);
+			setCurrentPosition(lowestUnassignedPosition === -1 ? pointsArray.length : lowestUnassignedPosition);
+			
+			return;
+		}
+		
 		if(nextPositionWithPoints === -1) return; // All points assigned
-		if(assignedDriverIds.includes(driverId)) return;
 		
 		setDriverPoints(prev => ({
 			...prev,
@@ -31,6 +64,7 @@ export const RaceResult: React.FC = () => {
 		}));
 		
 		setAssignedDriverIds(ids => [ ...ids, driverId ]);
+		setDriverPositions(prev => ({ ...prev, [driverId]: nextPositionWithPoints }));
 		setCurrentPosition(nextPositionWithPoints + 1);
 	};
 	
@@ -40,7 +74,8 @@ export const RaceResult: React.FC = () => {
 				key={driver.id}
 				{...driver}
 				onClick={() => handleDriverClick(driver.id)}
-				disabled={assignedDriverIds.includes(driver.id) || nextPositionWithPoints === -1}
+				disabled={!assignedDriverIds.includes(driver.id) && nextPositionWithPoints === -1}
+				assignedPosition={driverPositions[driver.id] !== undefined ? driverPositions[driver.id] + 1 : undefined}
 			/>
 		));
 	};

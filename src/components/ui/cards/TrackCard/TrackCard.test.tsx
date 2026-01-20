@@ -10,8 +10,8 @@ vi.mock('../../../../context/hooks', () => ({
 describe('TrackCard', () => {
     const mockTrack = {
         id: 1,
-        name: 'Circuit of the Americas',
-        nationality: 'USA' as const,
+        name: 'Monaco',
+        nationality: 'Monaco' as const,
     };
 
     it('renders track information correctly', () => {
@@ -21,8 +21,7 @@ describe('TrackCard', () => {
 
         render(<TrackCard {...mockTrack} />);
 
-        expect(screen.getByText('Circuit of the Americas')).toBeInTheDocument();
-        expect(screen.getByText('USA')).toBeInTheDocument();
+        expect(screen.getAllByText('Monaco')).toHaveLength(2);
     });
 
     it('calls addSingleRaceToRaceCalendar when clicked', () => {

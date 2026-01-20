@@ -66,7 +66,7 @@ describe('RaceResult', () => {
         expect(screen.getByText(/18 Pts/i)).toBeInTheDocument();
     });
 
-    it('disables drivers already assigned', () => {
+    it('allows removing assignment by clicking already assigned driver', () => {
         render(
             <BrowserRouter>
                 <RaceResult />
@@ -76,9 +76,36 @@ describe('RaceResult', () => {
         const firstDriverName = drivers[0].name;
         const firstDriverButton = screen.getByText(firstDriverName).closest('button');
 
+        // First click: assign driver to P1
         fireEvent.click(firstDriverButton!);
 
-        expect(firstDriverButton).toBeDisabled();
+        expect(mockSetDriverPoints).toHaveBeenCalledTimes(1);
+        expect(firstDriverButton).not.toBeDisabled();
+        
+        // Second click: remove assignment
+        fireEvent.click(firstDriverButton!);
+        
+        expect(mockSetDriverPoints).toHaveBeenCalledTimes(2);
+        expect(firstDriverButton).not.toBeDisabled();
+    });
+
+    it('displays position overlay on assigned drivers', () => {
+        render(
+            <BrowserRouter>
+                <RaceResult />
+            </BrowserRouter>
+        );
+
+        const firstDriverButton = screen.getByText(drivers[0].name).closest('button');
+        const secondDriverButton = screen.getByText(drivers[1].name).closest('button');
+
+        // Assign P1
+        fireEvent.click(firstDriverButton!);
+        expect(screen.getByText('P1')).toBeInTheDocument();
+
+        // Assign P2
+        fireEvent.click(secondDriverButton!);
+        expect(screen.getByText('P2')).toBeInTheDocument();
     });
 
     it('shows "All Points Assigned" and "View Standings" button when finished', () => {
