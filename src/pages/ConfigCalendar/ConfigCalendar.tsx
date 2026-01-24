@@ -50,7 +50,6 @@ export const ConfigCalendar: React.FC = () => {
 								relative overflow-hidden
                 px-8 py-10 w-full
                 bg-white/5 backdrop-blur-sm rounded-none border-l-4 border-red-600
-                rounded-none
                 transform -skew-x-12
                 transition-all duration-300 ease-out
                 hover:scale-105 hover:shadow-[0_0_30px_rgba(220,38,38,0.2)]
