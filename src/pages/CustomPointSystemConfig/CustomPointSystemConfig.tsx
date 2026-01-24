@@ -88,10 +88,10 @@ export const CustomPointSystemConfig: React.FC = () => {
 							className="
 								relative overflow-hidden group
 								px-16 py-3
-								bg-blue-600 rounded-none border-l-4 border-white
+								bg-red-600 rounded-none border-l-4 border-white
 								transform -skew-x-12 transform-gpu
 								transition-all duration-300 ease-out
-                                hover:bg-blue-700 hover:scale-105 hover:shadow-[0_0_20px_rgba(37,99,235,0.5)]
+                                hover:bg-red-700 hover:scale-105 hover:shadow-[0_0_20px_rgba(37,99,235,0.5)]
                                 flex items-center justify-center
                                 min-w-50
                             "

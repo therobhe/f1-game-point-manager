@@ -5,6 +5,7 @@ import { SeasonProvider } from './context/SeasonContextProvider.tsx';
 import { ConfigCalendar } from './pages/ConfigCalendar/ConfigCalendar';
 import { ConfigPointSystem } from './pages/ConfigPointSystem/ConfigPointSystem.tsx';
 import { CustomCalendarConfig } from './pages/CustomCalendarConfig/CustomCalendarConfig.tsx';
+import { CustomPointSystemConfig } from './pages/CustomPointSystemConfig/CustomPointSystemConfig.tsx';
 import { Finish } from './pages/Finish/Finish';
 import { MainMenu } from './pages/MainMenu/MainMenu';
 import { RaceResult } from './pages/RaceResult/RaceResult';
@@ -18,7 +19,7 @@ const AppRouter = () => {
 			<Route path="/track-config" element={<ConfigCalendar />} />
 			<Route path="/custom-calendar" element={<CustomCalendarConfig />} />
 			<Route path="/points" element={<ConfigPointSystem />} />
-			<Route path="/custom-pointsystem-config" element={<CustomCalendarConfig />} />
+			<Route path="/custom-pointsystem-config" element={<CustomPointSystemConfig />} />
 			<Route path="/race/:raceId" element={<RaceResult key={location.pathname} />} />
 			<Route path="/standings/:raceId" element={<Standings />} />
 			<Route path="/finish" element={<Finish />} />
