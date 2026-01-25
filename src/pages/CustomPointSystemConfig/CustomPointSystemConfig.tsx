@@ -101,7 +101,7 @@ export const CustomPointSystemConfig: React.FC = () => {
 											<span className="inline-block">−</span>
 										</button>
 										
-										{/* Input with ID matching label and proper Name attribute */}
+										{/* Input with id matching label and proper name attribute */}
 										<input
 											id={inputId}
 											name={`points_pos_${position}`}
