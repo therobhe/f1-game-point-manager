@@ -9,13 +9,13 @@ type DriverCardProps = Driver & {
 };
 
 export const DriverCard: React.FC<DriverCardProps> = ({
-	                                                      name,
-	                                                      nationality,
-	                                                      teamId,
-	                                                      onClick,
-	                                                      disabled,
-	                                                      assignedPosition
-                                                      }) => {
+	name,
+	nationality,
+	teamId,
+	onClick,
+	disabled,
+	assignedPosition,
+}) => {
 	const teamName = getTeamNameFromId(teamId);
 	
 	return (
