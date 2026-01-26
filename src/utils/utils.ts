@@ -1,12 +1,9 @@
 import { teams } from './data.ts';
 
-export const getFlagImgForNationality = (nationality: string): string => {
-	return nationality;
-};
-
 export const getFlagUrl = (countryCode?: string, size = 64): string => {
-	if (!countryCode) return `https://via.placeholder.com/${size}`;
-	return `https://flagsapi.com/${countryCode}/flat/${size}.png`;
+	if(!countryCode) return `https://via.placeholder.com/${size}`;
+	const code = countryCode.toLowerCase();
+	return `https://flagcdn.com/${code}.svg`;
 };
 
 
