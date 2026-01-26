@@ -45,6 +45,7 @@ export type Track = {
 	id: number;
 	name: string;
 	nationality: Nationality;
+	countryCode?: string;
 }
 
 export type PointHistory = {

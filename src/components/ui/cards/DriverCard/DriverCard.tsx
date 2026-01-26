@@ -8,7 +8,14 @@ type DriverCardProps = Driver & {
 	assignedPosition?: number;
 };
 
-export const DriverCard: React.FC<DriverCardProps> = ({ name, nationality, teamId, onClick, disabled, assignedPosition }) => {
+export const DriverCard: React.FC<DriverCardProps> = ({
+	name,
+	nationality,
+	teamId,
+	onClick,
+	disabled,
+	assignedPosition,
+}) => {
 	const teamName = getTeamNameFromId(teamId);
 	
 	return (
@@ -24,17 +31,18 @@ export const DriverCard: React.FC<DriverCardProps> = ({ name, nationality, teamI
                 shadow-lg transition-all duration-300
                 text-center
                 disabled:opacity-30 disabled:cursor-not-allowed
-                hover:not-disabled:scale-105 hover:not-disabled:bg-white/10 hover:not-disabled:border-white hover:not-disabled:shadow-xl
+                enabled:hover:scale-105 enabled:hover:bg-red-500/10 enabled:hover:border-red-500 enabled:hover:shadow-xl
                 group
             `}
 		>
 			{assignedPosition !== undefined && (
-				<div className="absolute top-2 right-2 bg-yellow-500 text-black font-bold text-lg px-3 py-1 rounded-lg shadow-lg border-2 border-yellow-600">
+				<div
+					className="absolute top-2 right-2 bg-yellow-500 text-black font-bold text-lg px-3 py-1 rounded-lg shadow-lg border-2 border-yellow-600">
 					P{assignedPosition}
 				</div>
 			)}
 			
-			<h2 className="text-xl font-bold text-white mb-1 group-hover:text-yellow-400 transition-colors">
+			<h2 className="text-xl font-bold text-white mb-1 group-hover:text-red-400 transition-colors">
 				{name}
 			</h2>
 			
