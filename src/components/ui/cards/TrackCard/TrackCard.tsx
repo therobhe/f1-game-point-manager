@@ -12,7 +12,7 @@ export const TrackCard: React.FC<Track> = ({ id, name, nationality, countryCode 
 			onClick={() => addSingleRaceToRaceCalendar({ id, name, nationality })}
 			className={`
 				relative flex flex-col justify-center items-center
-				w-full max-w-75 aspect-square
+				w-full max-w-[300px] aspect-square
 				p-4
 				rounded-xl border border-white
 				bg-white/5 backdrop-blur-sm
