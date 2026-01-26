@@ -10,7 +10,7 @@ import { Finish } from './pages/Finish/Finish';
 import { MainMenu } from './pages/MainMenu/MainMenu';
 import { RaceResult } from './pages/RaceResult/RaceResult';
 import { Standings } from './pages/Standings/Standings';
-import AnalyticsRouterWrapper from './utils/analytics/AnalyticsRouteWrapper.tsx';
+import AnalyticsRouterWrapper from './utils/analytics/AnalyticsRouterWrapper.tsx';
 
 const AppRouter = () => {
 	const location = useLocation();
