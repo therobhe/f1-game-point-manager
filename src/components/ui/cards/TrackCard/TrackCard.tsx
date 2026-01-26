@@ -23,7 +23,7 @@ export const TrackCard: React.FC<Track> = ({ id, name, nationality, countryCode 
 			`}
 		>
 			<span
-				aria-hidden
+				aria-hidden="true"
 				className="absolute inset-0 rounded-xl bg-center bg-contain bg-no-repeat opacity-10 pointer-events-none"
 				style={{ backgroundImage: `url(${flagUrl})` }}
 			/>
