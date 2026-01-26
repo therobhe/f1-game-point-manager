@@ -20,7 +20,7 @@ export function loadGoatCounter(siteUrl = 'https://therobhe.goatcounter.com/coun
 	if(w.__goatcounter_loaded) return; // Prevent loading the script multiple times.
 	const s = document.createElement('script');
 	s.async = true; // Load the script asynchronously to avoid blocking the main thread.
-	s.src = '//gc.zgo.at/count.js'; // GoatCounter script source.
+	s.src = 'https://gc.zgo.at/count.js'; // GoatCounter script source.
 	s.setAttribute('data-goatcounter', siteUrl); // Set the site URL for tracking.
 	document.head.appendChild(s); // Append the script to the document head.
 	w.__goatcounter_loaded = true; // Mark the script as loaded.
