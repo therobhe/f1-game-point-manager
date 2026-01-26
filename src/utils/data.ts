@@ -7,25 +7,25 @@ import type { Driver, Team, Track } from '../context/types.ts';
  * @type {Track[]}
  */
 export const tracks: Track[] = [
-	{ id: 1, name: 'Melbourne', nationality: 'Australia' },
-	{ id: 2, name: 'Sepang', nationality: 'Malaysia' },
-	{ id: 3, name: 'Sakhir', nationality: 'Bahrain' },
-	{ id: 4, name: 'Shanghai', nationality: 'China' },
-	{ id: 5, name: 'Barcelona', nationality: 'Spain' },
-	{ id: 6, name: 'Monte Carlo', nationality: 'Monaco' },
-	{ id: 7, name: 'Montréal', nationality: 'Canada' },
-	{ id: 8, name: 'Spielberg', nationality: 'Austria' },
-	{ id: 9, name: 'Silverstone', nationality: 'Great Britain' },
-	{ id: 10, name: 'Hockenheim', nationality: 'Germany' },
-	{ id: 11, name: 'Budapest', nationality: 'Hungary' },
-	{ id: 12, name: 'Spa-Francorchamps', nationality: 'Belgium' },
-	{ id: 13, name: 'Monza', nationality: 'Italy' },
-	{ id: 14, name: 'Singapore', nationality: 'Singapore' },
-	{ id: 15, name: 'Suzuka', nationality: 'Japan' },
-	{ id: 16, name: 'Sotchi', nationality: 'Russia' },
-	{ id: 17, name: 'Austin', nationality: 'USA' },
-	{ id: 18, name: 'Interlagos', nationality: 'Brazil' },
-	{ id: 19, name: 'Yas Marina', nationality: 'Abu Dhabi' }
+	{ id: 1, name: 'Melbourne', nationality: 'Australia', countryCode: 'AU' },
+	{ id: 2, name: 'Sepang', nationality: 'Malaysia', countryCode: 'MY' },
+	{ id: 3, name: 'Sakhir', nationality: 'Bahrain', countryCode: 'BH' },
+	{ id: 4, name: 'Shanghai', nationality: 'China', countryCode: 'CN' },
+	{ id: 5, name: 'Barcelona', nationality: 'Spain', countryCode: 'ES' },
+	{ id: 6, name: 'Monte Carlo', nationality: 'Monaco', countryCode: 'MC' },
+	{ id: 7, name: 'Montréal', nationality: 'Canada', countryCode: 'CA' },
+	{ id: 8, name: 'Spielberg', nationality: 'Austria', countryCode: 'AT' },
+	{ id: 9, name: 'Silverstone', nationality: 'Great Britain', countryCode: 'GB' },
+	{ id: 10, name: 'Hockenheim', nationality: 'Germany', countryCode: 'DE' },
+	{ id: 11, name: 'Budapest', nationality: 'Hungary', countryCode: 'HU' },
+	{ id: 12, name: 'Spa-Francorchamps', nationality: 'Belgium', countryCode: 'BE' },
+	{ id: 13, name: 'Monza', nationality: 'Italy', countryCode: 'IT' },
+	{ id: 14, name: 'Singapore', nationality: 'Singapore', countryCode: 'SG' },
+	{ id: 15, name: 'Suzuka', nationality: 'Japan', countryCode: 'JP' },
+	{ id: 16, name: 'Sotchi', nationality: 'Russia', countryCode: 'RU' },
+	{ id: 17, name: 'Austin', nationality: 'USA', countryCode: 'US' },
+	{ id: 18, name: 'Interlagos', nationality: 'Brazil', countryCode: 'BR' },
+	{ id: 19, name: 'Yas Marina', nationality: 'Abu Dhabi', countryCode: 'AE' }
 ];
 
 /**
@@ -80,7 +80,7 @@ export const teams: Team[] = [
 ];
 
 export const pointSystem = {
-	modern: [ 25, 18, 15, 12, 10, 8, 6, 4, 2, 1 ],
-	classic: [ 10, 8, 6, 5, 4, 3, 2, 1 ],
-	retro: [ 10, 6, 4, 3, 2, 1 ]
+	modern: [25, 18, 15, 12, 10, 8, 6, 4, 2, 1],
+	classic: [10, 8, 6, 5, 4, 3, 2, 1],
+	retro: [10, 6, 4, 3, 2, 1]
 };
