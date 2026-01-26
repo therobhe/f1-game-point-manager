@@ -31,7 +31,7 @@ export const DriverCard: React.FC<DriverCardProps> = ({
                 shadow-lg transition-all duration-300
                 text-center
                 disabled:opacity-30 disabled:cursor-not-allowed
-                hover:scale-105 hover:bg-red-500/10 hover:border-red-500 hover:shadow-xl
+                enabled:hover:scale-105 enabled:hover:bg-red-500/10 enabled:hover:border-red-500 enabled:hover:shadow-xl
                 group
             `}
 		>
