@@ -10,6 +10,7 @@ import { Finish } from './pages/Finish/Finish';
 import { MainMenu } from './pages/MainMenu/MainMenu';
 import { RaceResult } from './pages/RaceResult/RaceResult';
 import { Standings } from './pages/Standings/Standings';
+import AnalyticsRouterWrapper from './utils/analytics/AnalyticsRouteWrapper.tsx';
 
 const AppRouter = () => {
 	const location = useLocation();
@@ -31,8 +32,10 @@ function App() {
 	return (
 		<SeasonProvider>
 			<BrowserRouter>
-				<ScrollToTop />
-				<AppRouter />
+				<AnalyticsRouterWrapper>
+					<ScrollToTop />
+					<AppRouter />
+				</AnalyticsRouterWrapper>
 			</BrowserRouter>
 		</SeasonProvider>
 	);
