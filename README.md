@@ -1,4 +1,4 @@
-# F1 Game Point Manager
+# F1 Game Season Manager
 
 Since F1 2014 dropped the drivers/constructors point-recognition in splitscreen mode, this project presents a
 point-storing app so that you can track the point course of a season :)
@@ -6,18 +6,21 @@ point-storing app so that you can track the point course of a season :)
 ## Features
 
 ### Scoring
+
 - keep track of race results by selecting the drivers per position
 - keep track of the constructor championship
 
 ### Race Calendar
+
 - option to track the points for the original 2014 race calendar OR create a custom calendar of custom length
-  
+
 ### Point System
+
 - you can choose between:
-  - the current point system (as used in the real 2014 season) 
-  - the one from 2006-2009
-  - the legacy system
-  - your own custom point system
+    - the current point system (as used in the real 2014 season)
+    - the one from 2006-2009
+    - the legacy system
+    - your own custom point system
 
 ## Tech Stack
 

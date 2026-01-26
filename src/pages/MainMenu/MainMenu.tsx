@@ -12,7 +12,7 @@ export const MainMenu: React.FC = () => {
 					className="text-center relative text-5xl md:text-7xl font-black italic tracking-tighter text-white uppercase transform -skew-x-12">
 					F1 2014
 					<span className="block text-2xl md:text-3xl font-bold tracking-widest text-red-500 mt-2 not-italic skew-x-0">
-						Point Manager
+						Season Manager
 					</span>
 				</h1>
 			</div>
