@@ -1,13 +1,13 @@
 import { render, screen } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 import { describe, expect, it } from 'vitest';
-import { MainMenu } from './MainMenu.tsx';
+import { LandingPage } from './LandingPage.tsx';
 
-describe('MainMenu', () => {
+describe('LandingPage', () => {
 	it('renders correctly', () => {
 		render(
 			<BrowserRouter>
-				<MainMenu />
+				<LandingPage />
 			</BrowserRouter>
 		);
 		expect(screen.getByText('F1 2014')).toBeInTheDocument();
@@ -18,7 +18,7 @@ describe('MainMenu', () => {
 	it('has a link to track configuration', () => {
 		render(
 			<BrowserRouter>
-				<MainMenu />
+				<LandingPage />
 			</BrowserRouter>
 		);
 		const link = screen.getByRole('link', { name: /New Season/i });

@@ -7,7 +7,7 @@ import { ConfigPointSystem } from './pages/ConfigPointSystem/ConfigPointSystem.t
 import { CustomCalendarConfig } from './pages/CustomCalendarConfig/CustomCalendarConfig.tsx';
 import { CustomPointSystemConfig } from './pages/CustomPointSystemConfig/CustomPointSystemConfig.tsx';
 import { Finish } from './pages/Finish/Finish';
-import { MainMenu } from './pages/MainMenu/MainMenu';
+import { LandingPage } from './pages/LandingPage/LandingPage';
 import { RaceResult } from './pages/RaceResult/RaceResult';
 import { Standings } from './pages/Standings/Standings';
 import AnalyticsRouterWrapper from './utils/analytics/AnalyticsRouterWrapper.tsx';
@@ -16,7 +16,7 @@ const AppRouter = () => {
 	const location = useLocation();
 	return (
 		<Routes>
-			<Route path="/" element={<MainMenu />} />
+			<Route path="/" element={<LandingPage />} />
 			<Route path="/track-config" element={<ConfigCalendar />} />
 			<Route path="/custom-calendar" element={<CustomCalendarConfig />} />
 			<Route path="/points" element={<ConfigPointSystem />} />

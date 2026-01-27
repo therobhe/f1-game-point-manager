@@ -8,7 +8,7 @@ describe('App Integration', () => {
 		// This is a bit complex to full integration test without mocking router fully or data.
 		// But we can try rendering App and navigating.
 		// The app uses BrowserRouter, so we should allow it.
-		// However, we start at MainMenu.
+		// However, we start at LandingPage.
 		
 		render(<App />);
 		expect(screen.getByText(/F1 2014/i)).toBeInTheDocument();
