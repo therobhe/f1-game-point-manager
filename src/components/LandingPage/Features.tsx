@@ -1,5 +1,5 @@
 /**
- * Motivation component for the Landing Page.
+ * Feature section of the Landing Page.
  * This component explains the purpose behind the creation of the F1 2014 Season Manager tool.
  *
  * @component
@@ -20,7 +20,7 @@ const Features = () => {
 				</li>
 				<li className="flex items-start">
 					<span className="text-green-500 mr-2">✓</span>
-					<span>Free, no ads, no tracking, no data stored, no account required, runs in you browser</span>
+					<span>Free, no ads, no tracking, no data stored, no account required, runs in your browser</span>
 				</li>
 				<li className="flex items-start">
 					<span className="text-green-500 mr-2">✓</span>

@@ -1,5 +1,5 @@
 /**
- * Motivation component for the Landing Page.
+ * Motivation section of the Landing Page.
  * This component explains the purpose behind the creation of the F1 2014 Season Manager tool.
  *
  * @component
@@ -15,7 +15,7 @@ const Motivation = () => {
 				was the only F1 title available on Xbox One that featured split-screen mode.
 			</p>
 			<p className="mb-3">
-				However, we were shocked that could only do one race before returning back to main menu, effectively killing
+				However, we were shocked that you could only do one race before returning back to main menu, effectively killing
 				the season aspect in F1 2014.
 			</p>
 			<p className="mb-3">
