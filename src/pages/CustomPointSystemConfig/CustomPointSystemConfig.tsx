@@ -96,7 +96,8 @@ export const CustomPointSystemConfig: React.FC = () => {
 											type="button"
 											aria-label={`Decrease points for position ${position}`}
 											onClick={() => handlePointChange(index, -1)}
-											className="w-10 py-3 bg-white/10 text-white font-bold rounded-l-md rounded-r-none hover:bg-red-600 transition-colors"
+											disabled={point === 0}
+											className="w-10 py-3 bg-white/10 text-white font-bold rounded-l-md rounded-r-none hover:bg-red-600 transition-colors disabled:opacity-50"
 										>
 											<span className="inline-block">−</span>
 										</button>
@@ -107,6 +108,8 @@ export const CustomPointSystemConfig: React.FC = () => {
 											name={`points_pos_${position}`}
 											type="number"
 											value={point}
+											min={0}
+											step={1}
 											onChange={(e) => handleInputChange(index, e.target.value)}
 											className="w-20 bg-white/5 border-y-2 border-red-600 text-white text-center py-3 font-bold text-xl focus:outline-none focus:bg-white/10 transition-colors [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
 										/>
