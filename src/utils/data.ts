@@ -1,3 +1,10 @@
+import customScoring from '../assets/img/landingpage/custom-scoring.png';
+import finish from '../assets/img/landingpage/finish.png';
+import resultScreen from '../assets/img/landingpage/result-screen.png';
+import scoringPresets from '../assets/img/landingpage/scoring-presets.png';
+import seasonConfig from '../assets/img/landingpage/season-config.png';
+import standings from '../assets/img/landingpage/standings.png';
+import trackSelection from '../assets/img/landingpage/track-selection.png';
 import type { Driver, Team, Track } from '../context/types.ts';
 
 /**
@@ -80,7 +87,17 @@ export const teams: Team[] = [
 ];
 
 export const pointSystem = {
-	modern: [25, 18, 15, 12, 10, 8, 6, 4, 2, 1],
-	classic: [10, 8, 6, 5, 4, 3, 2, 1],
-	retro: [10, 6, 4, 3, 2, 1]
+	modern: [ 25, 18, 15, 12, 10, 8, 6, 4, 2, 1 ],
+	classic: [ 10, 8, 6, 5, 4, 3, 2, 1 ],
+	retro: [ 10, 6, 4, 3, 2, 1 ]
 };
+
+export const homepageImages = [
+	{ src: seasonConfig, alt: 'Season Config' },
+	{ src: trackSelection, alt: 'Track Selection' },
+	{ src: scoringPresets, alt: 'Scoring Presets' },
+	{ src: customScoring, alt: 'Custom Scoring' },
+	{ src: resultScreen, alt: 'Result Screen' },
+	{ src: standings, alt: 'Standings' },
+	{ src: finish, alt: 'Finish' },
+];
