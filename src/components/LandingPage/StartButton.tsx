@@ -10,7 +10,7 @@ const StartButton = () => {
 			>
 				    <span
 					    className="relative z-10 block text-xl font-bold text-white uppercase tracking-wider transform skew-x-12">
-				      Start your season
+				      Start your Season
 				    </span>
 				<div
 					className="absolute inset-0 h-full w-full scale-0 rounded-none transition-all duration-300 group-hover:scale-100 group-hover:bg-red-800/50" />
