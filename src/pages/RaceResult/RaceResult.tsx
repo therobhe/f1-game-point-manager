@@ -10,7 +10,8 @@ export const RaceResult: React.FC = () => {
 	const { setDriverPoints, activePointSystem, raceCalendar } = useSeasonContext();
 	const [ assignedDriverIds, setAssignedDriverIds ] = useState<number[]>([]);
 	const [ driverPositions, setDriverPositions ] = useState<{[driverId: number]: number}>({});
-	const [ currentPosition, setCurrentPosition ] = useState(0);
+	const [ unassignedPosition, setUnassignedPosition ] = useState<number | null>(null);
+	const [ nextSequentialPosition, setNextSequentialPosition ] = useState(0);
 	
 	// Find the current track from the race calendar
 	const currentTrack = raceCalendar[Number(raceId) - 1];
@@ -20,7 +21,10 @@ export const RaceResult: React.FC = () => {
 		return pointsArray.findIndex((points, index) => index >= from && points > 0);
 	};
 	
-	const nextPositionWithPoints = getNextPositionWithPoints(currentPosition);
+	// If there's an unassigned position, use that; otherwise find the next sequential position with points
+	const nextPositionWithPoints = unassignedPosition !== null
+		? unassignedPosition
+		: getNextPositionWithPoints(nextSequentialPosition);
 	
 	const handleDriverClick = (driverId: number) => {
 		// If driver is already assigned, remove the assignment
@@ -28,7 +32,14 @@ export const RaceResult: React.FC = () => {
 			const assignedPosition = driverPositions[driverId];
 			
 			// Validate that the position exists and is within bounds
-			if (assignedPosition === undefined || assignedPosition < 0 || assignedPosition >= pointsArray.length) return;
+			if(assignedPosition === undefined || assignedPosition < 0 || assignedPosition >= pointsArray.length) return;
+			
+			// Only allow unassigning if this is the most recently assigned position
+			// (either the unassigned position slot, or the last sequential position)
+			if(unassignedPosition !== null) {
+				// There's already an unassigned position waiting to be filled
+				return;
+			}
 			
 			const pointsToRemove = pointsArray[assignedPosition];
 			
@@ -41,17 +52,13 @@ export const RaceResult: React.FC = () => {
 			// Remove from assigned drivers
 			setAssignedDriverIds(ids => ids.filter(id => id !== driverId));
 			
-			// Remove position mapping and calculate remaining positions
+			// Remove position mapping
 			const newPositions = { ...driverPositions };
 			delete newPositions[driverId];
 			setDriverPositions(newPositions);
 			
-			// Recalculate current position (find the earliest unassigned position)
-			const assignedPositions = Object.values(newPositions);
-			const lowestUnassignedPosition = pointsArray.findIndex((points, index) => 
-				points > 0 && !assignedPositions.includes(index)
-			);
-			setCurrentPosition(lowestUnassignedPosition === -1 ? pointsArray.length : lowestUnassignedPosition);
+			// Set this position as the one that needs to be reassigned
+			setUnassignedPosition(assignedPosition);
 			
 			return;
 		}
@@ -65,7 +72,13 @@ export const RaceResult: React.FC = () => {
 		
 		setAssignedDriverIds(ids => [ ...ids, driverId ]);
 		setDriverPositions(prev => ({ ...prev, [driverId]: nextPositionWithPoints }));
-		setCurrentPosition(nextPositionWithPoints + 1);
+		
+		// If we're filling an unassigned position, clear it; otherwise advance the sequential position
+		if(unassignedPosition !== null) {
+			setUnassignedPosition(null);
+		} else {
+			setNextSequentialPosition(nextPositionWithPoints + 1);
+		}
 	};
 	
 	const renderDriverCards = () => {
