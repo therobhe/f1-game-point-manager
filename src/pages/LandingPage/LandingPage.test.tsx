@@ -12,7 +12,7 @@ describe('LandingPage', () => {
 		);
 		expect(screen.getByText('F1 2014')).toBeInTheDocument();
 		expect(screen.getByText('Season Manager')).toBeInTheDocument();
-		expect(screen.getByText('New Season')).toBeInTheDocument();
+		expect(screen.getByText('Start your Season')).toBeInTheDocument();
 	});
 	
 	it('has a link to track configuration', () => {
@@ -21,7 +21,7 @@ describe('LandingPage', () => {
 				<LandingPage />
 			</BrowserRouter>
 		);
-		const link = screen.getByRole('link', { name: /New Season/i });
+		const link = screen.getByRole('link', { name: /Start your Season/i });
 		expect(link).toHaveAttribute('href', '/track-config');
 	});
 });

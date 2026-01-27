@@ -13,25 +13,41 @@ type ImageProps = {
  */
 const ImageSlider: React.FC<ImageProps> = ({ images }) => {
 	const [ activeIndex, setActiveIndex ] = useState(0);
+	const hasImages = Array.isArray(images) && images.length > 0;
 	
+	// Even if we early-return later when there are no images, hooks must be called unconditionally.
 	useEffect(() => {
+		if(!hasImages) return;
+		
+		// Only set up the interval when we have at least one image
 		const interval = setInterval(() => {
 			setActiveIndex((prevIndex) => (prevIndex + 1) % images.length);
 		}, 10000);
 		
 		return () => clearInterval(interval);
-	}, [ images.length ]);
+	}, [ images.length, hasImages ]);
+	
+	// If there are no images, render nothing (guard against division by zero in modulo ops)
+	if(!hasImages) {
+		return null;
+	}
+	
+	// Normalize activeIndex for renders so we never rely on state being within bounds
+	const displayIndex = activeIndex % images.length;
 	
 	const goToPrevious = () => {
+		if(!hasImages) return;
 		setActiveIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
 	};
 	
 	const goToNext = () => {
+		if(!hasImages) return;
 		setActiveIndex((prevIndex) => (prevIndex + 1) % images.length);
 	};
 	
 	const goToSlide = (index: number) => {
-		setActiveIndex(index);
+		if(!hasImages) return;
+		setActiveIndex(Math.max(0, Math.min(index, images.length - 1)));
 	};
 	
 	return (
@@ -44,7 +60,7 @@ const ImageSlider: React.FC<ImageProps> = ({ images }) => {
 						src={image.src}
 						alt={image.alt}
 						className={`w-full h-auto object-cover transition-opacity duration-500 ease-in-out ${
-							index === activeIndex
+							index === displayIndex
 								? 'opacity-100'
 								: 'opacity-0 absolute top-0 left-0'
 						}`}
@@ -93,7 +109,7 @@ const ImageSlider: React.FC<ImageProps> = ({ images }) => {
 						key={index}
 						onClick={() => goToSlide(index)}
 						className={`w-3 h-3 rounded-full border-2 border-gray-400 transition-colors ${
-							index === activeIndex
+							index === displayIndex
 								? 'bg-gray-400'
 								: 'bg-transparent hover:border-gray-300'
 						}`}
