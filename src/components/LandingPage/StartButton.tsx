@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 const StartButton = () => {
 	return (
 		<div
-			className="fixed left-6 bottom-14 z-50 flex-col items-center md:relative md:left-auto md:bottom-auto md:flex">
+			className="fixed left-6 bottom-14 z-50 flex flex-col items-center md:relative md:left-auto md:bottom-auto md:flex">
 			<Link
 				to="/track-config"
 				className="inline-flex relative overflow-hidden group px-12 py-4 bg-red-600 rounded-none border-l-4 border-white transform -skew-x-12 transition-all duration-300 ease-out hover:bg-red-700 hover:scale-105 hover:shadow-[0_0_20px_rgba(220,38,38,0.5)]"
