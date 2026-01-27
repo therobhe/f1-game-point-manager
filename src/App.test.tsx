@@ -11,8 +11,8 @@ describe('App Integration', () => {
 		// However, we start at MainMenu.
 		
 		render(<App />);
-		expect(screen.getByText(/F1 2014/i)).toBeInTheDocument();
-		expect(screen.getByText(/Season Manager/i)).toBeInTheDocument();
+		expect(screen.getByText(/Restore split-screen/i)).toBeInTheDocument();
+		expect(screen.getByText(/Start Season Tracker/i)).toBeInTheDocument();
 		
 		// We can't easily click through everything quickly.
 		// So checking if App renders without crashing is a good start.
