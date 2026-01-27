@@ -1,10 +1,10 @@
-import customScoring from '../assets/img/landingpage/custom-scoring.png';
-import finish from '../assets/img/landingpage/finish.png';
-import resultScreen from '../assets/img/landingpage/result-screen.png';
-import scoringPresets from '../assets/img/landingpage/scoring-presets.png';
-import seasonConfig from '../assets/img/landingpage/season-config.png';
-import standings from '../assets/img/landingpage/standings.png';
-import trackSelection from '../assets/img/landingpage/track-selection.png';
+import customScoring from '../assets/img/landingpage/custom-scoring.webp';
+import finish from '../assets/img/landingpage/finish.webp';
+import resultScreen from '../assets/img/landingpage/result-screen.webp';
+import scoringPresets from '../assets/img/landingpage/scoring-presets.webp';
+import seasonConfig from '../assets/img/landingpage/season-config.webp';
+import standings from '../assets/img/landingpage/standings.webp';
+import trackSelection from '../assets/img/landingpage/track-selection.webp';
 import type { Driver, Team, Track } from '../context/types.ts';
 
 /**
