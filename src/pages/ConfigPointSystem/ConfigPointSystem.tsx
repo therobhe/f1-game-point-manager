@@ -37,7 +37,7 @@ export const ConfigPointSystem: React.FC = () => {
 				robots={PAGE_SEO.configPointSystem.robots}
 			/>
 			<main
-				className="flex flex-col items-center justify-center min-h-screen p-4 bg-linear-to-b from-[#1a1a1a] to-[#0f0f0f]">
+				className="flex flex-col items-center justify-center min-h-screen p-4 bg-gradient-to-b from-[#1a1a1a] to-[#0f0f0f]">
 				<div className="w-full max-w-4xl relative">
 
 					{/* Back button to navigate to the previous page */}
