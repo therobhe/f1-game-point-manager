@@ -1,4 +1,5 @@
 import { render, screen, fireEvent } from '@testing-library/react';
+import { HelmetProvider } from 'react-helmet-async';
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { ConfigCalendar } from '../ConfigCalendar/ConfigCalendar';
 import { BrowserRouter, useNavigate } from 'react-router-dom';
@@ -17,6 +18,12 @@ vi.mock('../../context/hooks', () => ({
     useSeasonContext: vi.fn(),
 }));
 
+const Wrapper = ({ children }: { children: React.ReactNode }) => (
+    <HelmetProvider>
+        <BrowserRouter>{children}</BrowserRouter>
+    </HelmetProvider>
+);
+
 describe('ConfigCalendar', () => {
     const mockNavigate = vi.fn();
     const mockSetRaceCalendar = vi.fn();
@@ -30,21 +37,13 @@ describe('ConfigCalendar', () => {
     });
 
     it('renders correctly', () => {
-        render(
-            <BrowserRouter>
-                <ConfigCalendar />
-            </BrowserRouter>
-        );
+        render(<ConfigCalendar />, { wrapper: Wrapper });
         expect(screen.getByText(/Full 2014/i)).toBeInTheDocument();
         expect(screen.getByText(/Custom/i)).toBeInTheDocument();
     });
 
     it('selects full season and navigates to points page', () => {
-        render(
-            <BrowserRouter>
-                <ConfigCalendar />
-            </BrowserRouter>
-        );
+        render(<ConfigCalendar />, { wrapper: Wrapper });
 
         fireEvent.click(screen.getByText(/Full 2014/i));
         expect(mockSetRaceCalendar).toHaveBeenCalledWith(tracks);
@@ -52,11 +51,7 @@ describe('ConfigCalendar', () => {
     });
 
     it('navigates to custom calendar page', () => {
-        render(
-            <BrowserRouter>
-                <ConfigCalendar />
-            </BrowserRouter>
-        );
+        render(<ConfigCalendar />, { wrapper: Wrapper });
 
         fireEvent.click(screen.getByText(/Custom/i));
         expect(mockNavigate).toHaveBeenCalledWith('/custom-calendar');

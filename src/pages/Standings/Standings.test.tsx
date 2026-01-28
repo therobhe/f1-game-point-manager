@@ -1,4 +1,5 @@
 import { render, screen } from '@testing-library/react';
+import { HelmetProvider } from 'react-helmet-async';
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { Standings } from '../Standings/Standings';
 import { BrowserRouter, useParams } from 'react-router-dom';
@@ -25,6 +26,12 @@ vi.mock('../../components/ui/buttons/NextRaceButton/NextRaceButton', () => ({
     NextRaceButton: ({ label }: { label: string }) => <button>{label}</button>,
 }));
 
+const Wrapper = ({ children }: { children: React.ReactNode }) => (
+    <HelmetProvider>
+        <BrowserRouter>{children}</BrowserRouter>
+    </HelmetProvider>
+);
+
 describe('Standings', () => {
     beforeEach(() => {
         vi.clearAllMocks();
@@ -35,11 +42,7 @@ describe('Standings', () => {
 
     it('renders correctly', () => {
         (useParams as any).mockReturnValue({ raceId: '1' });
-        render(
-            <BrowserRouter>
-                <Standings />
-            </BrowserRouter>
-        );
+        render(<Standings />, { wrapper: Wrapper });
         expect(screen.getByText('Championship')).toBeInTheDocument();
         expect(screen.getByText('Standings')).toBeInTheDocument();
         expect(screen.getByTestId('standings-table')).toBeInTheDocument();
@@ -47,21 +50,13 @@ describe('Standings', () => {
 
     it('shows "Next Race" button if there are more races', () => {
         (useParams as any).mockReturnValue({ raceId: '1' });
-        render(
-            <BrowserRouter>
-                <Standings />
-            </BrowserRouter>
-        );
+        render(<Standings />, { wrapper: Wrapper });
         expect(screen.getByText('Next Race')).toBeInTheDocument();
     });
 
     it('shows "Finish Season" button if it was the last race', () => {
         (useParams as any).mockReturnValue({ raceId: '2' });
-        render(
-            <BrowserRouter>
-                <Standings />
-            </BrowserRouter>
-        );
+        render(<Standings />, { wrapper: Wrapper });
         expect(screen.getByText('Finish Season')).toBeInTheDocument();
     });
 });
