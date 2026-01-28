@@ -1,7 +1,7 @@
 # F1 Game Season Manager
 
-Since F1 2014 dropped the drivers/constructors point-recognition in splitscreen mode, this project presents a
-point-storing app so that you can track the point course of a season :)
+Back in F1 2011, full split-screen seasons with proper points tracking were possible — but this feature was removed in later versions, including 2014. That meant you couldn’t run a full championship together anymore, which really killed the couch co-op experience.
+I ended up building a small, free web app that lets you manually track a custom F1 2014 season across races (drivers, points, standings, etc.). It’s nothing fancy — just meant to restore that missing part of the experience.
 
 ## Features
 
