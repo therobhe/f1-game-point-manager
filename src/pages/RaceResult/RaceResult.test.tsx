@@ -1,4 +1,5 @@
 import { render, screen, fireEvent } from '@testing-library/react';
+import { HelmetProvider } from 'react-helmet-async';
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { RaceResult } from '../RaceResult/RaceResult';
 import { BrowserRouter, useParams } from 'react-router-dom';
@@ -22,6 +23,12 @@ vi.mock('../../components/ui/buttons/NextRaceButton/NextRaceButton', () => ({
     NextRaceButton: ({ label }: { label: string }) => <button>{label}</button>,
 }));
 
+const Wrapper = ({ children }: { children: React.ReactNode }) => (
+    <HelmetProvider>
+        <BrowserRouter>{children}</BrowserRouter>
+    </HelmetProvider>
+);
+
 describe('RaceResult', () => {
     const mockSetDriverPoints = vi.fn();
     const mockRaceCalendar = [
@@ -40,22 +47,14 @@ describe('RaceResult', () => {
     });
 
     it('renders correctly with current track', () => {
-        render(
-            <BrowserRouter>
-                <RaceResult />
-            </BrowserRouter>
-        );
+        render(<RaceResult />, { wrapper: Wrapper });
         expect(screen.getByText('Melbourne')).toBeInTheDocument();
         expect(screen.getByText(/Assign P1:/i)).toBeInTheDocument();
         expect(screen.getByText(/25 Pts/i)).toBeInTheDocument();
     });
 
     it('assigns points to a driver and moves to next position', () => {
-        render(
-            <BrowserRouter>
-                <RaceResult />
-            </BrowserRouter>
-        );
+        render(<RaceResult />, { wrapper: Wrapper });
 
         const firstDriver = screen.getByText(drivers[0].name);
         fireEvent.click(firstDriver);
@@ -67,11 +66,7 @@ describe('RaceResult', () => {
     });
 
     it('allows removing assignment by clicking already assigned driver', () => {
-        render(
-            <BrowserRouter>
-                <RaceResult />
-            </BrowserRouter>
-        );
+        render(<RaceResult />, { wrapper: Wrapper });
 
         const firstDriverName = drivers[0].name;
         const firstDriverButton = screen.getByText(firstDriverName).closest('button');
@@ -81,20 +76,16 @@ describe('RaceResult', () => {
 
         expect(mockSetDriverPoints).toHaveBeenCalledTimes(1);
         expect(firstDriverButton).not.toBeDisabled();
-        
+
         // Second click: remove assignment
         fireEvent.click(firstDriverButton!);
-        
+
         expect(mockSetDriverPoints).toHaveBeenCalledTimes(2);
         expect(firstDriverButton).not.toBeDisabled();
     });
 
     it('displays position overlay on assigned drivers', () => {
-        render(
-            <BrowserRouter>
-                <RaceResult />
-            </BrowserRouter>
-        );
+        render(<RaceResult />, { wrapper: Wrapper });
 
         const firstDriverButton = screen.getByText(drivers[0].name).closest('button');
         const secondDriverButton = screen.getByText(drivers[1].name).closest('button');
@@ -109,11 +100,7 @@ describe('RaceResult', () => {
     });
 
     it('shows "All Points Assigned" and "View Standings" button when finished', () => {
-        render(
-            <BrowserRouter>
-                <RaceResult />
-            </BrowserRouter>
-        );
+        render(<RaceResult />, { wrapper: Wrapper });
 
         // Assign P1, P2, P3
         fireEvent.click(screen.getByText(drivers[0].name));
@@ -127,11 +114,7 @@ describe('RaceResult', () => {
     it('renders error message if track not found', () => {
         (useParams as any).mockReturnValue({ raceId: '2' }); // Only 1 track in mock
 
-        render(
-            <BrowserRouter>
-                <RaceResult />
-            </BrowserRouter>
-        );
+        render(<RaceResult />, { wrapper: Wrapper });
 
         expect(screen.getByText('No track found for this race.')).toBeInTheDocument();
     });

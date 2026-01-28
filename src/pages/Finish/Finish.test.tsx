@@ -1,4 +1,5 @@
 import { render, screen, fireEvent } from '@testing-library/react';
+import { HelmetProvider } from 'react-helmet-async';
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { Finish } from '../Finish/Finish';
 import { BrowserRouter } from 'react-router-dom';
@@ -8,6 +9,12 @@ import { drivers } from '../../utils/data';
 vi.mock('../../context/hooks', () => ({
     useSeasonContext: vi.fn(),
 }));
+
+const Wrapper = ({ children }: { children: React.ReactNode }) => (
+    <HelmetProvider>
+        <BrowserRouter>{children}</BrowserRouter>
+    </HelmetProvider>
+);
 
 describe('Finish', () => {
     const mockResetSeason = vi.fn();
@@ -26,11 +33,7 @@ describe('Finish', () => {
     });
 
     it('renders the podium correctly', () => {
-        render(
-            <BrowserRouter>
-                <Finish />
-            </BrowserRouter>
-        );
+        render(<Finish />, { wrapper: Wrapper });
 
         expect(screen.getByText(/SEASON/i)).toBeInTheDocument();
         expect(screen.getByText(/FINALE/i)).toBeInTheDocument();
@@ -47,11 +50,7 @@ describe('Finish', () => {
     });
 
     it('calls resetSeason when "Back to Main Menu" is clicked', () => {
-        render(
-            <BrowserRouter>
-                <Finish />
-            </BrowserRouter>
-        );
+        render(<Finish />, { wrapper: Wrapper });
 
         const backButton = screen.getByText('Back to Main Menu');
         fireEvent.click(backButton);

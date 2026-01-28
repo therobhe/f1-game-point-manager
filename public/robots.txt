@@ -1,0 +1,28 @@
+# F1 2014 Season Manager - robots.txt
+# https://www.robotstxt.org/
+
+User-agent: *
+
+# Allow access to main resources
+Allow: /
+Allow: /track-config
+Allow: /points
+
+# Block dynamic/session-dependent routes
+Disallow: /race/
+Disallow: /standings/
+Disallow: /finish
+Disallow: /custom-calendar
+Disallow: /custom-pointsystem-config
+
+# Allow static assets
+Allow: /assets/
+Allow: /*.js$
+Allow: /*.css$
+Allow: /*.png$
+Allow: /*.jpg$
+Allow: /*.svg$
+Allow: /*.ico$
+
+# Sitemap location (update domain when deploying)
+Sitemap: https://f1-2014-season-manager.com/sitemap.xml
